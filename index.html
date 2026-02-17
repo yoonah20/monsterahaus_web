@@ -33,41 +33,42 @@
       overflow-x: hidden;
     }
 
-    /* 나오 매니저의 선물: 배경 몬스테라 잎 애니메이션 */
+    /* 나오 매니저의 진수: 배경 몬스테라 잎만 살랑살랑 */
     body::before, body::after {
       content: "";
       position: fixed;
-      width: 300px;
-      height: 300px;
-      background-image: url('logo.gif');
+      width: 400px;
+      height: 400px;
+      background-image: url('monstera-leaf-bg.png');
       background-size: contain;
       background-repeat: no-repeat;
-      opacity: 0.04; /* 아주 은은하게 */
+      opacity: 0.05; 
       z-index: -1;
       pointer-events: none;
+      filter: grayscale(1) brightness(0.5); /* 톤을 더 차분하게 */
     }
 
     body::before {
-      top: -50px;
-      left: -50px;
-      animation: float 20s infinite ease-in-out;
+      top: -100px;
+      left: -100px;
+      animation: float 25s infinite ease-in-out;
     }
 
     body::after {
-      bottom: -50px;
-      right: -50px;
-      transform: rotate(180deg);
-      animation: float-alt 25s infinite ease-in-out;
+      bottom: -100px;
+      right: -100px;
+      transform: rotate(150deg);
+      animation: float-alt 30s infinite ease-in-out;
     }
 
     @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      50% { transform: translate(30px, 40px) rotate(5deg); }
+      0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+      50% { transform: translate(40px, 60px) rotate(10deg) scale(1.05); }
     }
 
     @keyframes float-alt {
-      0%, 100% { transform: translate(0, 0) rotate(180deg); }
-      50% { transform: translate(-40px, -30px) rotate(175deg); }
+      0%, 100% { transform: translate(0, 0) rotate(150deg) scale(1); }
+      50% { transform: translate(-50px, -40px) rotate(140deg) scale(1.1); }
     }
 
     /* 1. 헤더 */
