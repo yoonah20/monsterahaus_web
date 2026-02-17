@@ -29,6 +29,45 @@
       -webkit-font-smoothing: antialiased;
       background-color: var(--bg);
       color: var(--fg);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* 나오 매니저의 선물: 배경 몬스테라 잎 애니메이션 */
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      background-image: url('logo.gif');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.04; /* 아주 은은하게 */
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    body::before {
+      top: -50px;
+      left: -50px;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    body::after {
+      bottom: -50px;
+      right: -50px;
+      transform: rotate(180deg);
+      animation: float-alt 25s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(30px, 40px) rotate(5deg); }
+    }
+
+    @keyframes float-alt {
+      0%, 100% { transform: translate(0, 0) rotate(180deg); }
+      50% { transform: translate(-40px, -30px) rotate(175deg); }
     }
 
     /* 1. 헤더 */
@@ -39,6 +78,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      position: relative;
     }
 
     .logo {
@@ -54,6 +94,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
     }
 
     .section-title {
@@ -144,6 +185,7 @@
       padding: 40px 20px 40px; 
       width: 100%;
       text-align: center;
+      position: relative;
     }
 
     .footer-inner {
