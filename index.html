@@ -4,107 +4,221 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="예능 프로그램 제작 및 콘텐츠 기획, 몬스테라하우스의 공식 웹사이트입니다.">
+  <meta name="keywords" content="몬스테라하우스, Monsterahaus, 예능 PD, 예능 프로그램, 콘텐츠 제작">
   <meta property="og:title" content="monsterahaus | 몬스테라하우스">
+  <meta property="og:description" content="예능 프로그램 제작 및 콘텐츠 기획의 새로운 시퀀스.">
   <meta property="og:image" content="https://monsterahaus.com/logo.png">
+  <meta property="og:url" content="https://monsterahaus.com">
+
   <title>monsterahaus :: the new noise</title>
   <style>
     :root { 
       --bg: #f3efe1; 
-      --fg: #1f3a27;
+      --fg: #1f3a27; /* 몬스테라하우스 딥 그린 */
       --max-width: 1100px;
       --card-width: clamp(260px, 35vw, 400px);
     }
+    
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; min-height: 100%; }
+    
     body {
       font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
       background-color: var(--bg);
       color: var(--fg);
-      overflow-x: hidden;
     }
 
-    /* 몬스테라 숲 애니메이션 레이어 */
-    .leaf-bg {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      z-index: -1;
-      pointer-events: none;
+    /* 1. 헤더 */
+    .header {
+      width: 100%;
+      padding: 60px 20px 60px; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo {
+      width: clamp(200px, 20vw, 320px);
+      height: auto;
+    }
+
+    /* 2. 메인 컨테이너 */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px 40px; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .section-title {
+      width: var(--card-width);
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      opacity: 0.3;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(31, 58, 39, 0.1);
+      padding-bottom: 10px;
+      text-align: left;
+    }
+
+    /* 현재 프로젝트 카드 */
+    .project-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      width: var(--card-width);
+      margin-bottom: 60px;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover { opacity: 0.85; }
+
+    .poster-wrap {
+      width: 100%;
       overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      line-height: 0;
     }
 
-    .leaf {
-      position: absolute;
-      background-image: url('monstera-leaf-bg.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 0.035;
-      filter: grayscale(0.5);
+    .poster {
+      width: 100%;
+      height: auto;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
-    /* 다양한 위치와 크기의 잎들 */
-    .l1 { top: -5%; left: -10%; width: 500px; height: 500px; animation: float 30s infinite ease-in-out; }
-    .l2 { bottom: -10%; right: -5%; width: 600px; height: 600px; animation: float 35s infinite ease-in-out reverse; }
-    .l3 { top: 20%; right: -8%; width: 300px; height: 300px; animation: float 25s infinite ease-in-out 2s; }
-    .l4 { bottom: 15%; left: -5%; width: 350px; height: 350px; animation: float 40s infinite ease-in-out 5s; }
-    .l5 { top: 40%; left: 15%; width: 150px; height: 150px; animation: float 20s infinite ease-in-out 1s; opacity: 0.02; }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-      50% { transform: translate(20px, 30px) rotate(8deg) scale(1.03); }
-    }
-
-    /* 기존 스타일 유지 */
-    .header { width: 100%; padding: 60px 20px; display: flex; flex-direction: column; align-items: center; }
-    .logo { width: clamp(200px, 20vw, 320px); height: auto; }
-    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px 40px; display: flex; flex-direction: column; align-items: center; }
-    .section-title { width: var(--card-width); font-size: 11px; letter-spacing: 0.25em; opacity: 0.3; margin-bottom: 24px; border-bottom: 1px solid rgba(31, 58, 39, 0.1); padding-bottom: 10px; }
-    .project-card { display: block; text-decoration: none; color: inherit; width: var(--card-width); margin-bottom: 60px; transition: opacity 0.3s ease; }
-    .poster-wrap { width: 100%; overflow: hidden; border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
-    .poster { width: 100%; height: auto; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
     .project-card:hover .poster { transform: scale(1.03); }
-    .project-title { font-size: 21px; font-weight: 600; margin: 25px 0 10px 0; text-align: center; }
-    .project-meta { font-size: 17px; opacity: 0.7; font-weight: 600; text-align: center; }
-    .next-sequence { width: var(--card-width); padding: 50px 0; text-align: center; font-size: 12px; letter-spacing: 0.25em; opacity: 0.45; border: 2px dashed rgba(31, 58, 39, 0.2); border-radius: 4px; margin-bottom: 30px; transition: all 0.4s ease; }
-    .next-sequence:hover { opacity: 0.8; border: 2px solid rgba(31, 58, 39, 0.4); transform: translateY(-5px); background-color: rgba(31, 58, 39, 0.02); }
-    .footer { background-color: var(--fg); color: #f9f7f0; padding: 40px 20px; width: 100%; text-align: center; }
-    .footer-inner { font-size: 13px; opacity: 0.85; }
-    .copyright { margin-top: 40px; opacity: 0.5; font-size: 11px; }
-    .reveal { opacity: 0; transform: translateY(20px); animation: reveal 0.8s ease-out forwards; }
+
+    .project-info {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .project-title {
+      font-size: 21px;
+      font-weight: 600;
+      margin: 0 0 10px 0;
+      letter-spacing: -0.02em;
+      opacity: 0.85;
+    }
+
+    .project-meta {
+      font-size: 17px;
+      opacity: 0.7;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+    }
+
+    /* 차기 프로젝트 점선 박스 */
+    .next-sequence {
+      width: var(--card-width);
+      padding: 50px 0;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      opacity: 0.45;
+      border: 2px dashed rgba(31, 58, 39, 0.2);
+      border-radius: 4px;
+      margin-bottom: 30px;
+      user-select: none;
+      transition: all 0.4s ease;
+    }
+
+    .next-sequence:hover {
+      opacity: 0.8;
+      border: 2px solid rgba(31, 58, 39, 0.4);
+      transform: translateY(-5px);
+      background-color: rgba(31, 58, 39, 0.02);
+    }
+
+    /* 3. 푸터 */
+    .footer {
+      background-color: var(--fg); 
+      color: #f9f7f0;
+      padding: 40px 20px 40px; 
+      width: 100%;
+      text-align: center;
+    }
+
+    .footer-inner {
+      font-size: 13px;
+      opacity: 0.85;
+      display: inline-block;
+    }
+
+    .footer-line { margin-bottom: 8px; }
+    .footer a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(243, 239, 225, 0.2); }
+    .footer a:hover { border-bottom: 1px solid #f9f7f0; }
+
+    .copyright {
+      margin-top: 40px;
+      opacity: 0.5;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: reveal 0.8s ease-out forwards;
+    }
+
     @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 768px) { .project-card, .section-title, .next-sequence { width: 72vw; } }
+
+    @media (max-width: 768px) {
+      .header { padding: 40px 20px 40px; }
+      .project-card, .section-title, .next-sequence { width: 72vw; }
+      .project-title { font-size: 19px; }
+      .project-meta { font-size: 15px; }
+    }
   </style>
   <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
-  <div class="leaf-bg">
-    <div class="leaf l1"></div>
-    <div class="leaf l2"></div>
-    <div class="leaf l3"></div>
-    <div class="leaf l4"></div>
-    <div class="leaf l5"></div>
-  </div>
+
   <header class="header reveal">
     <img class="logo" src="logo.gif" alt="monsterahaus" />
   </header>
+
   <main class="container reveal" style="animation-delay: 0.2s;">
     <div class="section-title">SELECTED WORK (2026)</div>
+
     <a href="https://tvn.cjenm.com/ko/The-Village-Barber" target="_blank" class="project-card">
-      <div class="poster-wrap"><img class="poster" src="26-bogummy_magical.webp" alt="보검 매직컬" /></div>
+      <div class="poster-wrap">
+        <img class="poster" src="26-bogummy_magical.webp" alt="보검 매직컬" />
+      </div>
       <div class="project-info">
         <h2 class="project-title">보검 매직컬 💈 (2026.01.30~)</h2>
-        <div class="project-meta">🎬 PD 손수정 &nbsp;|&nbsp; 📺 tvN / TVING</div>
+        <div class="project-meta">
+          🎬 PD 손수정 &nbsp;|&nbsp; 📺 tvN / TVING
+        </div>
       </div>
     </a>
-    <div class="next-sequence">SCENE #02 :: IN PRODUCTION</div>
-    <div class="next-sequence" style="margin-bottom: 60px;">SCENE #03 :: IN PRODUCTION</div>
+
+    <div class="next-sequence">
+      SCENE #02 :: IN PRODUCTION
+    </div>
+
+    <div class="next-sequence" style="margin-bottom: 60px;">
+      SCENE #03 :: IN PRODUCTION
+    </div>
   </main>
+
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-line">주식회사 몬스테라하우스 | 대표이사 박진경 이재석</div>
+      <div class="footer-line">주식회사 몬스테라하우스</div>
+      <div class="footer-line">대표이사 박진경 이재석</div>
       <div class="footer-line">서울시 마포구 월드컵로32길 24 2층</div>
-      <div class="footer-line"><a href="mailto:contact@monsterahaus.com" style="color:white;text-decoration:none;">contact@monsterahaus.com</a></div>
+      <div class="footer-line"><a href="mailto:contact@monsterahaus.com">contact@monsterahaus.com</a></div>
       <div class="copyright">© 2026 Monsterahaus Co., Ltd.</div>
     </div>
   </footer>
+
 </body>
 </html>
