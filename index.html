@@ -110,14 +110,31 @@
     }
     .nav-links a:hover, .nav-links a.on { color: var(--dk-cream); }
 
+    /* ════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════ */
     #hero {
       min-height: 100vh;
       display: flex; flex-direction: column;
       justify-content: center; align-items: center; text-align: center;
       padding: 120px 24px 80px;
       position: relative; border-top: none;
-      background: var(--bg);
+      background-image: url('assets/bg-hero.webp');
+      background-size: cover;
+      background-position: center;
     }
+
+    /* 크림색 오버레이 — 브랜드 톤 유지하면서 텍스트 가독성 확보 */
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(243, 239, 225, 0.62);
+      z-index: 0;
+    }
+
+    /* 콘텐츠는 오버레이 위로 */
+    #hero > * { position: relative; z-index: 1; }
+
     .hero-logo {
       width: min(420px, 75vw); margin-bottom: 28px;
       animation: logoIn 1.1s cubic-bezier(.22,1,.36,1) both;
@@ -728,4 +745,4 @@
   })();
 </script>
 </body>
-</html>`
+</html>
