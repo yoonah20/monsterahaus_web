@@ -135,8 +135,6 @@
       background: rgba(243, 239, 225, 0.80);
       z-index: 1;
     }
-
-    /* 콘텐츠 전체를 하나의 3D 공간으로 묶는 컨테이너 */
     .hero-content {
       position: relative; z-index: 2;
       display: flex; flex-direction: column;
@@ -144,8 +142,6 @@
       transform-style: preserve-3d;
       will-change: transform;
     }
-
-    /* 각 요소 깊이 레이어 */
     .hz-logo    { transform: translateZ(44px); margin-bottom: 28px; }
     .hz-tagline { transform: translateZ(22px); }
     .hz-meta    { transform: translateZ(14px); }
@@ -704,18 +700,19 @@
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   /* ── 히어로 요소 참조 ── */
-  const navEl       = document.getElementById('main-nav');
-  const secs        = [...document.querySelectorAll('section[id]')];
-  const links       = [...document.querySelectorAll('.nav-links a')];
-  const heroBg      = document.querySelector('.hero-bg');
-  const heroEl      = document.getElementById('hero');
-  const heroContent = document.querySelector('.hero-content');
+  const navEl        = document.getElementById('main-nav');
+  const secs         = [...document.querySelectorAll('section[id]')];
+  const links        = [...document.querySelectorAll('.nav-links a')];
+  const heroBg       = document.querySelector('.hero-bg');
+  const heroEl       = document.getElementById('hero');
+  const heroContent  = document.querySelector('.hero-content');
+  const heroLogoWrap = document.querySelector('.hz-logo'); // 틸트 해제 기준
 
   let scrollY = 0, tiltX = 0, tiltY = 0;
 
   function applyHeroTransform(transition) {
     if (transition) heroContent.style.transition = `transform ${transition}`;
-    /* tilt 없을 땐 perspective 제거 → translateZ 깊이 효과 사라져 완전 flat */
+    /* tilt 없을 땐 perspective 제거 → translateZ 무효 → 완전 flat */
     if (tiltX === 0 && tiltY === 0) {
       heroContent.style.transform = `translateY(${-scrollY * 0.07}px)`;
     } else {
@@ -737,16 +734,17 @@
     }
   }, { passive: true });
 
-  /* ── 히어로 마우스 틸트 (콘텐츠 전체) ── */
+  /* ── 히어로 마우스 틸트 — mousemove는 heroEl 전체에서 추적 ── */
   heroEl.addEventListener('mousemove', (e) => {
     const r = heroEl.getBoundingClientRect();
     tiltX = -(e.clientY - r.top  - r.height / 2) / (r.height / 2) * 6;
     tiltY =  (e.clientX - r.left - r.width  / 2) / (r.width  / 2) * 6;
     applyHeroTransform('.08s ease-out');
   });
-  heroEl.addEventListener('mouseleave', () => {
+
+  /* ── 틸트 해제는 로고 밖으로 벗어날 때 ── */
+  heroLogoWrap.addEventListener('mouseleave', () => {
     tiltX = 0; tiltY = 0;
-    /* perspective 없는 상태로 부드럽게 복귀 → 완전 flat */
     applyHeroTransform('.6s cubic-bezier(.22,1,.36,1)');
   });
 
