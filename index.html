@@ -145,12 +145,11 @@
       will-change: transform;
     }
 
-    /* 각 요소를 translateZ로 깊이 분리
-       — 애니메이션과 충돌하지 않도록 wrapper div로 감쌈 */
-    .hz-logo     { transform: translateZ(44px); margin-bottom: 28px; }
-    .hz-tagline  { transform: translateZ(22px); }
-    .hz-meta     { transform: translateZ(14px); }
-    .hz-cta      { transform: translateZ(32px); }
+    /* 각 요소 깊이 레이어 */
+    .hz-logo    { transform: translateZ(44px); margin-bottom: 28px; }
+    .hz-tagline { transform: translateZ(22px); }
+    .hz-meta    { transform: translateZ(14px); }
+    .hz-cta     { transform: translateZ(32px); }
 
     .hero-logo {
       width: min(420px, 75vw); display: block;
@@ -467,26 +466,19 @@
 
 <!-- HERO -->
 <section id="hero">
-  <!-- 레이어 1: 배경 (패럴랙스 — 가장 느리게) -->
   <div class="hero-bg"></div>
-  <!-- 레이어 2: 크림 오버레이 -->
   <div class="hero-overlay"></div>
 
-  <!-- 레이어 3: 3D 공간 컨테이너 — 마우스 틸트 + 스크롤 패럴랙스 -->
   <div class="hero-content">
-    <!-- translateZ(44px) — 가장 앞 -->
     <div class="hz-logo">
       <img class="hero-logo" src="assets/logo_big.gif" alt="monsterahaus" />
     </div>
-    <!-- translateZ(22px) -->
     <div class="hz-tagline">
       <p class="hero-tagline">an entertainment production house</p>
     </div>
-    <!-- translateZ(14px) -->
     <div class="hz-meta">
       <p class="hero-meta">Seoul, Korea &nbsp;·&nbsp; Est. 2025</p>
     </div>
-    <!-- translateZ(32px) — 버튼은 앞으로 -->
     <div class="hz-cta">
       <div class="hero-cta-row">
         <a href="#works" class="btn-p">WORKS ↓</a>
@@ -686,8 +678,8 @@
       </div>
       <div class="c-item">
         <span class="c-l">INSTAGRAM</span>
-        <a href="https://instagram.com/monstera.haus"
-           class="c-v" target="_blank" rel="noopener">@monstera.haus</a>
+        <a href="https://instagram.com/monsterahaus.seoul"
+           class="c-v" target="_blank" rel="noopener">@monsterahaus.seoul</a>
       </div>
     </div>
   </div>
@@ -698,7 +690,7 @@
   <div class="ft-r">
     주식회사 몬스테라하우스 &nbsp;|&nbsp; 대표이사 박진경 · 이재석<br />
     사업자등록번호 257-88-03372<br />
-    © 2026 Monstera Haus Co., Ltd. All rights reserved.
+    © 2026 Monsterahaus Co., Ltd. All rights reserved.
   </div>
 </footer>
 
@@ -712,19 +704,24 @@
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   /* ── 히어로 요소 참조 ── */
-  const navEl      = document.getElementById('main-nav');
-  const secs       = [...document.querySelectorAll('section[id]')];
-  const links      = [...document.querySelectorAll('.nav-links a')];
-  const heroBg     = document.querySelector('.hero-bg');
-  const heroEl     = document.getElementById('hero');
+  const navEl       = document.getElementById('main-nav');
+  const secs        = [...document.querySelectorAll('section[id]')];
+  const links       = [...document.querySelectorAll('.nav-links a')];
+  const heroBg      = document.querySelector('.hero-bg');
+  const heroEl      = document.getElementById('hero');
   const heroContent = document.querySelector('.hero-content');
 
-  /* 틸트 + 스크롤 오프셋을 항상 함께 적용 */
   let scrollY = 0, tiltX = 0, tiltY = 0;
+
   function applyHeroTransform(transition) {
     if (transition) heroContent.style.transition = `transform ${transition}`;
-    heroContent.style.transform =
-      `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(${-scrollY * 0.07}px)`;
+    /* tilt 없을 땐 perspective 제거 → translateZ 깊이 효과 사라져 완전 flat */
+    if (tiltX === 0 && tiltY === 0) {
+      heroContent.style.transform = `translateY(${-scrollY * 0.07}px)`;
+    } else {
+      heroContent.style.transform =
+        `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(${-scrollY * 0.07}px)`;
+    }
   }
 
   /* ── Nav + 패럴랙스 스크롤 ── */
@@ -734,7 +731,6 @@
     let cur = '';
     secs.forEach(s => { if (scrollY >= s.offsetTop - 110) cur = s.id; });
     links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + cur));
-
     if (scrollY < heroEl.offsetHeight) {
       heroBg.style.transform = `translateY(${scrollY * 0.35}px)`;
       applyHeroTransform(null);
@@ -750,6 +746,7 @@
   });
   heroEl.addEventListener('mouseleave', () => {
     tiltX = 0; tiltY = 0;
+    /* perspective 없는 상태로 부드럽게 복귀 → 완전 flat */
     applyHeroTransform('.6s cubic-bezier(.22,1,.36,1)');
   });
 
@@ -766,7 +763,7 @@
     });
     card.addEventListener('mouseleave', () => {
       card.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s cubic-bezier(.22,1,.36,1)';
-      card.style.transform  = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      card.style.transform  = 'none';
       card.style.boxShadow  = '';
     });
   });
