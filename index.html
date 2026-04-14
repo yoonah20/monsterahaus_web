@@ -706,7 +706,7 @@
   const heroBg       = document.querySelector('.hero-bg');
   const heroEl       = document.getElementById('hero');
   const heroContent  = document.querySelector('.hero-content');
-  const heroLogoWrap = document.querySelector('.hz-logo'); // 틸트 해제 기준
+  const heroLogoWrap = document.querySelector('.hz-logo');
 
   let scrollY = 0, tiltX = 0, tiltY = 0;
 
@@ -718,6 +718,13 @@
     } else {
       heroContent.style.transform =
         `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(${-scrollY * 0.07}px)`;
+    }
+  }
+
+  function resetTilt() {
+    if (tiltX !== 0 || tiltY !== 0) {
+      tiltX = 0; tiltY = 0;
+      applyHeroTransform('.6s cubic-bezier(.22,1,.36,1)');
     }
   }
 
@@ -734,19 +741,26 @@
     }
   }, { passive: true });
 
-  /* ── 히어로 마우스 틸트 — mousemove는 heroEl 전체에서 추적 ── */
+  /* ── 히어로 마우스 틸트
+       mousemove 안에서 로고 위에 있는지 실시간 체크
+       로고 위 → 틸트 on / 로고 밖 → 즉시 flat ── */
   heroEl.addEventListener('mousemove', (e) => {
-    const r = heroEl.getBoundingClientRect();
-    tiltX = -(e.clientY - r.top  - r.height / 2) / (r.height / 2) * 6;
-    tiltY =  (e.clientX - r.left - r.width  / 2) / (r.width  / 2) * 6;
-    applyHeroTransform('.08s ease-out');
+    const lr = heroLogoWrap.getBoundingClientRect();
+    const overLogo = e.clientX >= lr.left && e.clientX <= lr.right
+                  && e.clientY >= lr.top  && e.clientY <= lr.bottom;
+
+    if (overLogo) {
+      const r = heroEl.getBoundingClientRect();
+      tiltX = -(e.clientY - r.top  - r.height / 2) / (r.height / 2) * 6;
+      tiltY =  (e.clientX - r.left - r.width  / 2) / (r.width  / 2) * 6;
+      applyHeroTransform('.08s ease-out');
+    } else {
+      resetTilt();
+    }
   });
 
-  /* ── 틸트 해제는 로고 밖으로 벗어날 때 ── */
-  heroLogoWrap.addEventListener('mouseleave', () => {
-    tiltX = 0; tiltY = 0;
-    applyHeroTransform('.6s cubic-bezier(.22,1,.36,1)');
-  });
+  /* 히어로 섹션 완전히 벗어날 때도 리셋 */
+  heroEl.addEventListener('mouseleave', resetTilt);
 
   /* ── 팀 카드 3D 틸트 ── */
   document.querySelectorAll('.pd').forEach(card => {
