@@ -287,8 +287,13 @@
     /* ════════════════════════════════════════
        WORKS
     ════════════════════════════════════════ */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
     .work-card {
-      max-width: 560px; margin: 0 auto;
       border: .5px solid var(--border);
       border-radius: 6px; overflow: hidden;
       background: var(--bg);
@@ -369,6 +374,44 @@
       font-family: var(--font-en); font-size: 13px; font-weight: 500; color: var(--muted2);
     }
     .season-item .badge { font-size: 9px; }
+
+    /* ── Coming Soon 티저 카드 ── */
+    .work-banner-teaser {
+      background-image:
+        linear-gradient(135deg, rgba(31,58,39,.90), rgba(42,110,58,.82)),
+        url('assets/bg-hero.webp');
+      background-size: cover;
+      background-position: center;
+    }
+    .work-banner-teaser::before {
+      content: 'TBA';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-en);
+      font-size: clamp(72px, 11vw, 130px);
+      font-weight: 700; letter-spacing: .04em;
+      color: rgba(243,239,225,.07);
+      line-height: 1; pointer-events: none;
+      z-index: 0;
+    }
+    .teaser-pulse {
+      position: absolute; top: 20px; right: 20px; z-index: 3;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--dk-cream2);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: .45; transform: scale(1); box-shadow: 0 0 0 0 rgba(184,212,160,.4); }
+      50%      { opacity: 1;   transform: scale(1.25); box-shadow: 0 0 0 8px rgba(184,212,160,0); }
+    }
+    .badge.b-coming {
+      background: transparent; color: #fff;
+      border: 1px solid rgba(255,255,255,.55);
+      letter-spacing: .14em;
+    }
+    .work-card-teaser .work-body {
+      opacity: .92;
+    }
 
     /* ════════════════════════════════════════
        TEAM
@@ -502,6 +545,7 @@
       .team-ceo .pd { flex: none; width: 100%; }
       .work-banner { height: 220px; }
       .work-banner-overlay { padding: 18px 20px; }
+      .works-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
     }
     @media(max-width:768px){
       nav { padding: 0 20px; }
@@ -628,6 +672,7 @@
 <section id="works" class="sand-section">
   <div class="sw">
     <h2 class="s-label reveal">WORKS</h2>
+    <div class="works-grid">
     <div class="work-card reveal d1">
       <a class="work-banner"
          href="https://www.youtube.com/playlist?list=PLgbB1gJhmG7DCP3flJX_7QLspehWe-e1h"
@@ -663,6 +708,25 @@
           <div class="season-item"><span class="badge b-s2">S2</span>2026 연내 방영 예정</div>
         </div>
       </div>
+    </div>
+
+    <div class="work-card work-card-teaser reveal d2">
+      <div class="work-banner work-banner-teaser" role="img" aria-label="다음 프로젝트 준비 중">
+        <span class="teaser-pulse" aria-hidden="true"></span>
+        <div class="work-banner-overlay">
+          <div class="work-banner-badge"><span class="badge b-coming">NEXT · 2026</span></div>
+          <h3 class="work-ko-title">UNTITLED</h3>
+          <p class="work-en-title">In Development</p>
+        </div>
+      </div>
+      <div class="work-body">
+        <p class="work-subtitle">베테랑 프로듀서들이 준비 중인 다음 이야기</p>
+        <p class="work-desc">
+          기획 단계부터 '돌연변이적 영감'을 담아 빚어내는 새 프로젝트.<br>
+          곧 공개됩니다.
+        </p>
+      </div>
+    </div>
     </div>
   </div>
 </section>
