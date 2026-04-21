@@ -316,13 +316,13 @@
     .b-jtbc { background: transparent; color: #b24000; border-color: #c84800; }
     .b-s1   { background: var(--green); color: #fff; border-color: var(--green); }
     .b-s2   { background: transparent; color: var(--green); border-color: var(--green); }
-    /* 어두운 배너 위 badge: 아웃라인 + 흰 텍스트 + 브랜드 컬러 보더 (배경 이미지 위 가독성 확보) */
-    .work-banner-badge .b-tvn  { background: transparent; color: #fff; border-color: #fa0029; }
-    .work-banner-badge .b-mbc  { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
-    .work-banner-badge .b-nfx  { background: transparent; color: #fff; border-color: #E50914; }
-    .work-banner-badge .b-dis  { background: transparent; color: #fff; border-color: #2a93e0; }
-    .work-banner-badge .b-kko  { background: transparent; color: #fff; border-color: #ffd400; }
-    .work-banner-badge .b-jtbc { background: transparent; color: #fff; border-color: #ff8040; }
+    /* 어두운 배너 위 badge는 solid 유지 (이미지 위 가독성 확보) */
+    .work-banner-badge .b-tvn  { background: #fa0029; color: #fff; border-color: #fa0029; }
+    .work-banner-badge .b-mbc  { background: #111;    color: #fff; border-color: #111; }
+    .work-banner-badge .b-nfx  { background: #E50914; color: #fff; border-color: #E50914; }
+    .work-banner-badge .b-dis  { background: #0163B5; color: #fff; border-color: #0163B5; }
+    .work-banner-badge .b-kko  { background: #c8a800; color: #fff; border-color: #c8a800; }
+    .work-banner-badge .b-jtbc { background: #e05000; color: #fff; border-color: #e05000; }
 
     /* ════════════════════════════════════════
        WORKS
@@ -393,25 +393,26 @@
     }
     .work-credit-v { font-size: 16px; font-weight: 500; color: rgba(255,255,255,.85); }
     .work-body {
-      padding: 28px 32px 32px;
+      padding: 22px 28px 24px;
       flex: 1;
       display: flex; flex-direction: column;
-      align-items: center; text-align: center; gap: 16px;
+      align-items: center; text-align: center; gap: 10px;
       justify-content: flex-start;
     }
     .work-subtitle {
-      font-family: var(--font-ko); font-size: 16px; font-weight: 500;
-      color: var(--fg); line-height: 1.7; max-width: 480px;
+      font-family: var(--font-ko); font-size: 15px; font-weight: 500;
+      color: var(--fg); line-height: 1.55; max-width: 480px;
       letter-spacing: -.01em;
     }
     .work-desc {
-      font-size: 15px; font-weight: 400; color: var(--fg2);
-      line-height: 1.9; max-width: 460px;
+      font-size: 14px; font-weight: 400; color: var(--fg2);
+      line-height: 1.7; max-width: 460px;
     }
     .season-row {
-      display: flex; flex-direction: column; gap: 10px;
+      display: flex; flex-direction: column; gap: 6px;
       width: 100%; max-width: 380px;
-      padding: 18px 0; border-top: .5px solid var(--border);
+      padding: 12px 0 0; margin-top: 4px;
+      border-top: .5px solid var(--border);
     }
     .season-item {
       display: flex; align-items: center; justify-content: center; gap: 12px;
