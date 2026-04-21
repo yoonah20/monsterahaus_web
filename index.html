@@ -3,16 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1f3a27" />
+  <meta name="format-detection" content="telephone=no" />
   <title>monsterahaus :: creative powerhouse</title>
-  <meta name="description" content="monsterahaus — an entertainment production house" />
+  <meta name="description" content="MBC·카카오엔터 베테랑 PD들이 2025년 설립한 예능 콘텐츠 제작 스튜디오 몬스테라하우스." />
+  <link rel="canonical" href="https://monsterahaus.com/" />
+  <meta property="og:site_name" content="monsterahaus" />
   <meta property="og:title" content="monsterahaus :: creative powerhouse" />
   <meta property="og:description" content="예능 콘텐츠 제작 스튜디오" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://monsterahaus.com/" />
+  <meta property="og:image" content="https://monsterahaus.com/assets/bg-hero.webp" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1037" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="monsterahaus :: creative powerhouse" />
+  <meta name="twitter:description" content="예능 콘텐츠 제작 스튜디오" />
+  <meta name="twitter:image" content="https://monsterahaus.com/assets/bg-hero.webp" />
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preload" as="image" href="assets/bg-hero.webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "주식회사 몬스테라하우스",
+    "alternateName": "monsterahaus",
+    "url": "https://monsterahaus.com/",
+    "logo": "https://monsterahaus.com/assets/favicon.png",
+    "foundingDate": "2025-09",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "월드컵로32길 24 2층",
+      "addressLocality": "마포구",
+      "addressRegion": "서울",
+      "addressCountry": "KR"
+    },
+    "email": "contact@monsterahaus.com",
+    "sameAs": ["https://instagram.com/monstera.haus"]
+  }
+  </script>
 
   <style>
     /* ════════════════════════════════════════
@@ -28,7 +63,7 @@
       --border2: rgba(31,58,39,.22);
       --green:   #2a6e3a;
       --accent:  #4aaa60;
-      --muted:   #6a8a72;
+      --muted:   #56775e;
       --muted2:  #4a6a52;
 
       --dk-bg:      #1f3a27;
@@ -84,8 +119,6 @@
       display: flex; justify-content: space-between; align-items: center;
       padding: 0 48px;
       background: var(--dk-bg);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
       border-bottom: .5px solid var(--dk-border);
       transition: border-color .3s, box-shadow .3s;
     }
@@ -127,7 +160,6 @@
       background-image: url('assets/bg-hero.webp');
       background-size: cover;
       background-position: center;
-      will-change: transform;
       z-index: 0;
     }
     .hero-overlay {
@@ -140,7 +172,6 @@
       display: flex; flex-direction: column;
       align-items: center; text-align: center;
       transform-style: preserve-3d;
-      will-change: transform;
     }
     .hz-logo    { transform: translateZ(44px); margin-bottom: 28px; }
     .hz-tagline { transform: translateZ(22px); }
@@ -246,7 +277,6 @@
     }
     .b-tvn  { background: #fa0029; color: #fff; border-color: #fa0029; }
     .b-mbc  { background: #111111; color: #fff; border-color: #111111; }
-    .b-mbc1 { background: #111111; color: #fff; border-color: #111111; }
     .b-nfx  { background: #E50914; color: #fff; border-color: #E50914; }
     .b-dis  { background: #0163B5; color: #fff; border-color: #0163B5; }
     .b-kko  { background: #c8a800; color: #fff; border-color: #c8a800; }
@@ -351,7 +381,6 @@
       background: var(--bg2); border: .5px solid var(--border);
       border-radius: 4px; padding: 28px;
       position: relative; overflow: hidden;
-      will-change: transform;
       transform-style: preserve-3d;
       transition: background .3s, border-color .25s;
       cursor: default;
@@ -420,6 +449,48 @@
     .ft-r { font-size: 13px; color: var(--dk-cream2); line-height: 1.9; text-align: right; }
 
     /* ════════════════════════════════════════
+       A11Y HELPERS
+    ════════════════════════════════════════ */
+    .sr-only {
+      position: absolute !important; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+
+    /* ════════════════════════════════════════
+       NAV TOGGLE (mobile)
+    ════════════════════════════════════════ */
+    .nav-toggle {
+      display: none;
+      background: transparent; border: 0; cursor: pointer;
+      width: 40px; height: 40px; padding: 0;
+      flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 2px;
+      background: var(--dk-cream); border-radius: 2px;
+      transition: transform .25s, opacity .2s;
+    }
+    nav.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ════════════════════════════════════════
+       REDUCED MOTION
+    ════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal  { opacity: 1 !important; transform: none !important; }
+      .hero-logo { animation: none !important; }
+      .hero-bg   { transform: none !important; }
+    }
+
+    /* ════════════════════════════════════════
        RESPONSIVE
     ════════════════════════════════════════ */
     @media(max-width:1000px){
@@ -435,7 +506,20 @@
     @media(max-width:768px){
       nav { padding: 0 20px; }
       .nav-sub { display: none; }
-      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute; top: 62px; left: 0; right: 0;
+        flex-direction: column; gap: 0;
+        background: var(--dk-bg);
+        padding: 12px 20px 18px;
+        border-top: .5px solid var(--dk-border);
+        box-shadow: 0 8px 24px rgba(0,0,0,.25);
+      }
+      nav.nav-open .nav-links { display: flex; }
+      .nav-links li { padding: 10px 0; border-bottom: .5px solid var(--dk-border); }
+      .nav-links li:last-child { border-bottom: 0; }
+      .nav-links a { font-size: 13px; display: block; }
       .sw { padding: 72px 20px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .team-rest { grid-template-columns: 1fr; }
@@ -445,15 +529,27 @@
       .hero-cta-row { flex-wrap: wrap; justify-content: center; }
     }
   </style>
+
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .nav-toggle { display: none !important; }
+      @media (max-width: 768px) { .nav-links { display: flex !important; position: static; flex-direction: row; gap: 16px; padding: 0; box-shadow: none; border: 0; } }
+    </style>
+  </noscript>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="main-nav">
+<nav id="main-nav" aria-label="주 내비게이션">
   <a class="nav-brand" href="#hero">
-    monsterahaus<span class="nav-sep">::</span><span class="nav-sub">creative powerhouse</span>
+    monsterahaus<span class="nav-sep" aria-hidden="true">::</span><span class="nav-sub">creative powerhouse</span>
   </a>
-  <ul class="nav-links">
+  <button class="nav-toggle" type="button"
+          aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu" class="nav-links">
     <li><a href="#works">WORKS</a></li>
     <li><a href="#team">TEAM</a></li>
     <li><a href="#contact">CONTACT</a></li>
@@ -466,8 +562,10 @@
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
+    <h1 class="sr-only">monsterahaus — creative powerhouse</h1>
     <div class="hz-logo">
-      <img class="hero-logo" src="assets/logo_big.gif" alt="monsterahaus" />
+      <img class="hero-logo" src="assets/logo_big.gif" alt="monsterahaus"
+           width="1024" height="1024" fetchpriority="high" decoding="async" />
     </div>
     <div class="hz-tagline">
       <p class="hero-tagline">an entertainment production house</p>
@@ -477,7 +575,7 @@
     </div>
     <div class="hz-cta">
       <div class="hero-cta-row">
-        <a href="#works" class="btn-p">WORKS ↓</a>
+        <a href="#works" class="btn-p">WORKS <span aria-hidden="true">↓</span></a>
         <a href="#contact" class="btn-g">문의하기</a>
       </div>
     </div>
@@ -487,7 +585,7 @@
 <!-- ABOUT -->
 <section id="about" class="light-section">
   <div class="sw">
-    <p class="s-label reveal">ABOUT</p>
+    <h2 class="s-label reveal">ABOUT</h2>
     <div class="about-grid">
       <div class="about-body reveal d1">
         <p class="about-quote">"익숙함 속의 낯선 놀라움, 몬스테라하우스"</p>
@@ -529,13 +627,15 @@
 <!-- WORKS -->
 <section id="works" class="sand-section">
   <div class="sw">
-    <p class="s-label reveal">WORKS</p>
+    <h2 class="s-label reveal">WORKS</h2>
     <div class="work-card reveal d1">
       <a class="work-banner"
          href="https://www.youtube.com/playlist?list=PLgbB1gJhmG7DCP3flJX_7QLspehWe-e1h"
-         target="_blank" rel="noopener">
-        <img class="work-banner-img" src="assets/2026-bm1.webp" alt="보검매직컬" />
-        <div class="work-banner-play"><div class="play-btn">▶</div></div>
+         target="_blank" rel="noopener noreferrer"
+         aria-label="보검 매직컬 예고편 재생 (YouTube, 새 창)">
+        <img class="work-banner-img" src="assets/2026-bm1.webp" alt="보검 매직컬 포스터"
+             width="922" height="501" loading="lazy" decoding="async" />
+        <div class="work-banner-play" aria-hidden="true"><div class="play-btn">▶</div></div>
         <div class="work-banner-overlay">
           <div class="work-banner-badge"><span class="badge b-tvn">tvN</span></div>
           <h3 class="work-ko-title">보검 매직컬</h3>
@@ -570,11 +670,11 @@
 <!-- TEAM -->
 <section id="team" class="light-section">
   <div class="sw">
-    <p class="s-label reveal">TEAM</p>
+    <h2 class="s-label reveal">TEAM</h2>
     <div class="team-ceo">
       <div class="pd reveal">
         <div class="pd-head">
-          <div class="pd-av"><img src="assets/pd-jk.webp" alt="박진경"></div>
+          <div class="pd-av"><img src="assets/pd-jk.webp" alt="박진경" width="252" height="252" loading="lazy" decoding="async"></div>
           <div>
             <div class="pd-name">박진경</div>
             <div class="pd-role">CO-CEO · EXECUTIVE PRODUCER</div>
@@ -590,7 +690,7 @@
       </div>
       <div class="pd reveal d1">
         <div class="pd-head">
-          <div class="pd-av"><img src="assets/pd-js.webp" alt="이재석"></div>
+          <div class="pd-av"><img src="assets/pd-js.webp" alt="이재석" width="252" height="252" loading="lazy" decoding="async"></div>
           <div>
             <div class="pd-name">이재석</div>
             <div class="pd-role">CO-CEO · EXECUTIVE PRODUCER</div>
@@ -608,7 +708,7 @@
     <div class="team-rest">
       <div class="pd reveal d2">
         <div class="pd-head">
-          <div class="pd-av"><img src="assets/pd-sj.webp" alt="손수정"></div>
+          <div class="pd-av"><img src="assets/pd-sj.webp" alt="손수정" width="252" height="252" loading="lazy" decoding="async"></div>
           <div>
             <div class="pd-name">손수정</div>
             <div class="pd-role">CREATIVE DIRECTOR</div>
@@ -624,14 +724,14 @@
       </div>
       <div class="pd reveal d3">
         <div class="pd-head">
-          <div class="pd-av"><img src="assets/pd-sd.webp" alt="문상돈"></div>
+          <div class="pd-av"><img src="assets/pd-sd.webp" alt="문상돈" width="252" height="252" loading="lazy" decoding="async"></div>
           <div>
             <div class="pd-name">문상돈</div>
             <div class="pd-role">CREATIVE DIRECTOR</div>
           </div>
         </div>
         <div class="pd-works">
-          <div class="pd-w"><span class="badge b-mbc1">MBC every1</span>어서와~ 한국은 처음이지? <span class="yr">2017</span></div>
+          <div class="pd-w"><span class="badge b-mbc">MBC every1</span>어서와~ 한국은 처음이지? <span class="yr">2017</span></div>
           <div class="pd-w"><span class="badge b-kko">KakaoTV</span>밤을 걷는 밤 <span class="yr">2020</span></div>
           <div class="pd-w"><span class="badge b-kko">KakaoTV</span>거침마당 <span class="yr">2021</span></div>
           <div class="pd-w"><span class="badge b-nfx">Netflix</span>좀비버스 <span class="yr">2023</span></div>
@@ -641,7 +741,7 @@
       </div>
       <div class="pd reveal d4">
         <div class="pd-head">
-          <div class="pd-av"><img src="assets/pd-jy.webp" alt="조주연"></div>
+          <div class="pd-av"><img src="assets/pd-jy.webp" alt="조주연" width="252" height="252" loading="lazy" decoding="async"></div>
           <div>
             <div class="pd-name">조주연</div>
             <div class="pd-role">CHIEF PRODUCER</div>
@@ -661,12 +761,15 @@
 <!-- CONTACT -->
 <section id="contact" class="sand-section">
   <div class="sw">
-    <p class="s-label reveal">CONTACT</p>
+    <h2 class="s-label reveal">CONTACT</h2>
     <p class="contact-lead reveal d1">
       방송사, 플랫폼, 브랜드와의 제작 협업 및<br />
       프로젝트 제안을 환영합니다.
     </p>
-    <span id="cta-email" class="contact-email reveal d2" style="cursor:pointer"></span>
+    <a id="cta-email" class="contact-email reveal d2"
+       href="#" rel="nofollow noopener"
+       data-u="contact" data-d="monsterahaus.com"
+       aria-label="이메일 보내기"></a>
     <div class="c-row reveal d3">
       <div class="c-item">
         <span class="c-l">ADDRESS</span>
@@ -728,64 +831,127 @@
     }
   }
 
-  /* ── Nav + 패럴랙스 스크롤 ── */
+  /* ── Active section: IntersectionObserver ── */
+  const navIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-55% 0px -40% 0px' });
+  secs.forEach(s => navIO.observe(s));
+
+  /* ── Scroll (rAF throttled) ── */
+  let heroH = heroEl.offsetHeight;
+  window.addEventListener('resize', () => { heroH = heroEl.offsetHeight; }, { passive: true });
+
+  let scrollTicking = false;
   window.addEventListener('scroll', () => {
     scrollY = window.scrollY;
-    navEl.classList.toggle('scrolled', scrollY > 50);
-    let cur = '';
-    secs.forEach(s => { if (scrollY >= s.offsetTop - 110) cur = s.id; });
-    links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + cur));
-    if (scrollY < heroEl.offsetHeight) {
-      heroBg.style.transform = `translateY(${scrollY * 0.35}px)`;
-      applyHeroTransform(null);
-    }
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(() => {
+      navEl.classList.toggle('scrolled', scrollY > 50);
+      if (scrollY < heroH) {
+        heroBg.style.transform = `translateY(${scrollY * 0.35}px)`;
+        applyHeroTransform(null);
+      }
+      scrollTicking = false;
+    });
   }, { passive: true });
 
-  /* ── 히어로 마우스 틸트
-       mousemove 안에서 로고 위에 있는지 실시간 체크
-       로고 위 → 틸트 on / 로고 밖 → 즉시 flat ── */
-  heroEl.addEventListener('mousemove', (e) => {
-    const lr = heroLogoWrap.getBoundingClientRect();
-    const overLogo = e.clientX >= lr.left && e.clientX <= lr.right
-                  && e.clientY >= lr.top  && e.clientY <= lr.bottom;
+  /* ── 히어로/팀카드 틸트 — hover 디바이스 + 모션 허용 시에만 ── */
+  const canHover = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const reducedMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-    if (overLogo) {
-      const r = heroEl.getBoundingClientRect();
-      tiltX = -(e.clientY - r.top  - r.height / 2) / (r.height / 2) * 6;
-      tiltY =  (e.clientX - r.left - r.width  / 2) / (r.width  / 2) * 6;
-      applyHeroTransform('.08s ease-out');
-    } else {
+  if (canHover && !reducedMotion) {
+    let heroMove = null, heroRAF = null;
+    heroEl.addEventListener('mousemove', (e) => {
+      heroMove = { x: e.clientX, y: e.clientY };
+      if (heroRAF) return;
+      heroRAF = requestAnimationFrame(() => {
+        const lr = heroLogoWrap.getBoundingClientRect();
+        const overLogo = heroMove.x >= lr.left && heroMove.x <= lr.right
+                      && heroMove.y >= lr.top  && heroMove.y <= lr.bottom;
+        if (overLogo) {
+          const r = heroEl.getBoundingClientRect();
+          tiltX = -(heroMove.y - r.top  - r.height / 2) / (r.height / 2) * 6;
+          tiltY =  (heroMove.x - r.left - r.width  / 2) / (r.width  / 2) * 6;
+          heroContent.style.willChange = 'transform';
+          applyHeroTransform('.08s ease-out');
+        } else {
+          resetTilt();
+          heroContent.style.willChange = '';
+        }
+        heroRAF = null;
+      });
+    });
+    heroEl.addEventListener('mouseleave', () => {
       resetTilt();
-    }
-  });
-
-  /* 히어로 섹션 완전히 벗어날 때도 리셋 */
-  heroEl.addEventListener('mouseleave', resetTilt);
-
-  /* ── 팀 카드 3D 틸트 ── */
-  document.querySelectorAll('.pd').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const r  = card.getBoundingClientRect();
-      const dx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
-      const dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
-      const rX = -dy * 5, rY = dx * 5;
-      card.style.transition = 'transform .08s ease-out, box-shadow .08s ease-out';
-      card.style.transform  = `perspective(800px) rotateX(${rX}deg) rotateY(${rY}deg) translateZ(6px)`;
-      card.style.boxShadow  = `${-rY * 1.5}px ${rX * 1.5}px 28px rgba(31,58,39,.13)`;
+      heroContent.style.willChange = '';
     });
-    card.addEventListener('mouseleave', () => {
-      card.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s cubic-bezier(.22,1,.36,1)';
-      card.style.transform  = 'none';
-      card.style.boxShadow  = '';
-    });
-  });
 
-  /* ── Email obfuscation ── */
+    document.querySelectorAll('.pd').forEach(card => {
+      let cardMove = null, cardRAF = null;
+      card.addEventListener('mousemove', (e) => {
+        cardMove = { x: e.clientX, y: e.clientY };
+        if (cardRAF) return;
+        cardRAF = requestAnimationFrame(() => {
+          const r  = card.getBoundingClientRect();
+          const dx = (cardMove.x - r.left - r.width  / 2) / (r.width  / 2);
+          const dy = (cardMove.y - r.top  - r.height / 2) / (r.height / 2);
+          const rX = -dy * 5, rY = dx * 5;
+          card.style.willChange = 'transform, box-shadow';
+          card.style.transition = 'transform .08s ease-out, box-shadow .08s ease-out';
+          card.style.transform  = `perspective(800px) rotateX(${rX}deg) rotateY(${rY}deg) translateZ(6px)`;
+          card.style.boxShadow  = `${-rY * 1.5}px ${rX * 1.5}px 28px rgba(31,58,39,.13)`;
+          cardRAF = null;
+        });
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s cubic-bezier(.22,1,.36,1)';
+        card.style.transform  = 'none';
+        card.style.boxShadow  = '';
+        card.style.willChange = '';
+      });
+    });
+  }
+
+  /* ── Mobile nav toggle ── */
   (function () {
-    const u = 'contact', d = 'monsterahaus.com';
+    const toggle = document.querySelector('.nav-toggle');
+    if (!toggle) return;
+    const close = () => {
+      navEl.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', '메뉴 열기');
+    };
+    toggle.addEventListener('click', () => {
+      const open = !navEl.classList.contains('nav-open');
+      navEl.classList.toggle('nav-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    });
+    links.forEach(a => a.addEventListener('click', close));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  })();
+
+  /* ── Email: 텍스트는 즉시, mailto는 상호작용 직전에 연결 ── */
+  (function () {
     const el = document.getElementById('cta-email');
-    el.textContent = u + '\u0040' + d;
-    el.addEventListener('click', () => { location.href = 'mailto:' + u + '@' + d; });
+    if (!el) return;
+    const addr = el.dataset.u + '@' + el.dataset.d;
+    el.textContent = addr;
+    const hydrate = () => {
+      el.href = 'mailto:' + addr;
+      el.removeEventListener('pointerdown', hydrate);
+      el.removeEventListener('focus', hydrate);
+    };
+    el.addEventListener('pointerdown', hydrate);
+    el.addEventListener('focus', hydrate);
   })();
 </script>
 </body>
