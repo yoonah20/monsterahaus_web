@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet" />
-  <script type="application/ld+json">
+  <script type="application/ld+json" id="ld-org">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -928,7 +928,7 @@
     <div class="c-row reveal d3">
       <div class="c-item">
         <span class="c-l">ADDRESS</span>
-        <span class="c-v">서울시 마포구 월드컵로32길 24 2층</span>
+        <span class="c-v" data-addr="full">서울시 마포구 월드컵로32길 24 2층</span>
       </div>
       <div class="c-item">
         <span class="c-l">INSTAGRAM</span>
@@ -939,15 +939,13 @@
     <div class="contact-map reveal d4">
       <iframe
         title="몬스테라하우스 오피스 지도"
-        src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%EC%8B%9C+%EB%A7%88%ED%8F%AC%EA%B5%AC+%EC%9B%94%EB%93%9C%EC%BB%B5%EB%A1%9C32%EA%B8%B8+24&z=17&hl=ko&output=embed"
+        data-addr="map"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="map-links reveal d4">
-      <a href="https://map.kakao.com/link/search/서울시 마포구 월드컵로32길 24"
-         target="_blank" rel="noopener noreferrer">카카오맵에서 보기 <span aria-hidden="true">↗</span></a>
-      <a href="https://map.naver.com/v5/search/서울시 마포구 월드컵로32길 24"
-         target="_blank" rel="noopener noreferrer">네이버 지도에서 보기 <span aria-hidden="true">↗</span></a>
+      <a data-addr="kakao" href="#" target="_blank" rel="noopener noreferrer">카카오맵에서 보기 <span aria-hidden="true">↗</span></a>
+      <a data-addr="naver" href="#" target="_blank" rel="noopener noreferrer">네이버 지도에서 보기 <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
@@ -962,6 +960,45 @@
 </footer>
 
 <script>
+  /* ════════════════════════════════════════════════════════════════════
+     ADDRESS — 회사 주소 단일 관리 지점
+     주소가 바뀌면 아래 객체 값만 수정하면 됩니다.
+     화면 표시 / 구글 지도 iframe / 카카오·네이버 지도 링크 / JSON-LD 전부 자동 반영.
+  ════════════════════════════════════════════════════════════════════ */
+  const ADDRESS = {
+    full:     '서울시 마포구 월드컵로32길 24 2층',
+    search:   '서울시 마포구 월드컵로32길 24',
+    street:   '월드컵로32길 24 2층',
+    locality: '마포구',
+    region:   '서울',
+    country:  'KR',
+  };
+
+  (function hydrateAddress() {
+    const q = encodeURIComponent(ADDRESS.search);
+    const set = (sel, fn) => document.querySelectorAll(sel).forEach(fn);
+
+    set('[data-addr="full"]',  el => { el.textContent = ADDRESS.full; });
+    set('[data-addr="map"]',   el => { el.src  = `https://maps.google.com/maps?q=${q}&z=17&hl=ko&output=embed`; });
+    set('[data-addr="kakao"]', el => { el.href = 'https://map.kakao.com/link/search/' + q; });
+    set('[data-addr="naver"]', el => { el.href = 'https://map.naver.com/v5/search/' + q; });
+
+    const ld = document.getElementById('ld-org');
+    if (ld) {
+      try {
+        const obj = JSON.parse(ld.textContent);
+        obj.address = {
+          '@type': 'PostalAddress',
+          streetAddress:   ADDRESS.street,
+          addressLocality: ADDRESS.locality,
+          addressRegion:   ADDRESS.region,
+          addressCountry:  ADDRESS.country,
+        };
+        ld.textContent = JSON.stringify(obj);
+      } catch (_) { /* keep original JSON-LD if parse fails */ }
+    }
+  })();
+
   /* ── Scroll reveal ── */
   const obs = new IntersectionObserver(es => {
     es.forEach(e => {
