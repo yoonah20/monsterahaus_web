@@ -203,6 +203,26 @@
       display: flex; gap: 12px; margin-top: 36px;
       animation: fadeUp .9s .55s cubic-bezier(.22,1,.36,1) both;
     }
+    .hero-scroll-hint {
+      position: absolute; left: 50%; bottom: 20px;
+      transform: translateX(-50%);
+      z-index: 3;
+      font-family: var(--font-en);
+      font-size: 11px; letter-spacing: .18em; font-weight: 500;
+      color: var(--muted2);
+      display: none;
+      text-align: center; line-height: 1.3;
+      animation: scrollHint 2s ease-in-out infinite;
+      opacity: .75;
+    }
+    .hero-scroll-hint span { display: block; font-size: 14px; margin-top: 4px; }
+    @keyframes scrollHint {
+      0%, 100% { transform: translate(-50%, 0);  opacity: .6; }
+      50%      { transform: translate(-50%, 6px); opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      .hero-scroll-hint { display: block; }
+    }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: none; }
@@ -235,10 +255,19 @@
       font-size: 12px; font-weight: 600; letter-spacing: .18em;
       margin-bottom: 40px;
     }
-    .light-section { background: var(--bg); border-top: .5px solid var(--border); }
+    .light-section { background: var(--bg); border-top: .5px solid var(--border); position: relative; }
     .light-section .s-label { color: var(--accent); }
-    .sand-section { background: var(--bg2); border-top: .5px solid var(--border); }
+    .sand-section  { background: var(--bg2); border-top: .5px solid var(--border); position: relative; }
     .sand-section .s-label { color: var(--accent); }
+    .light-section::before,
+    .sand-section::before {
+      content: '';
+      position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 36px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
 
     /* ════════════════════════════════════════
        ABOUT
@@ -251,12 +280,15 @@
       font-size: 19px; font-weight: 400; font-style: italic;
       color: var(--fg); line-height: 1.65; letter-spacing: -.01em;
     }
-    .fact-list { display: flex; flex-direction: column; gap: 2px; }
+    .fact-list { display: flex; flex-direction: column; gap: 0; }
     .fact {
-      background: var(--bg2); border: .5px solid var(--border);
+      background: var(--bg2);
+      border: .5px solid var(--border);
+      border-bottom: 0;
       border-left: 2px solid var(--accent);
       padding: 18px 22px; transition: background .2s;
     }
+    .fact:last-child { border-bottom: .5px solid var(--border); }
     .fact:hover { background: var(--bg3); }
     .fact-l {
       font-family: var(--font-en);
@@ -275,14 +307,22 @@
       border: 1px solid transparent; line-height: 1.4;
       display: inline-block;
     }
-    .b-tvn  { background: #fa0029; color: #fff; border-color: #fa0029; }
-    .b-mbc  { background: #111111; color: #fff; border-color: #111111; }
-    .b-nfx  { background: #E50914; color: #fff; border-color: #E50914; }
-    .b-dis  { background: #0163B5; color: #fff; border-color: #0163B5; }
-    .b-kko  { background: #c8a800; color: #fff; border-color: #c8a800; }
-    .b-jtbc { background: #e05000; color: #fff; border-color: #e05000; }
+    /* 기본: outline (팀 카드 등 밝은 배경) */
+    .b-tvn  { background: transparent; color: #d1002a; border-color: #d1002a; }
+    .b-mbc  { background: transparent; color: #111111; border-color: #111111; }
+    .b-nfx  { background: transparent; color: #b0060e; border-color: #b0060e; }
+    .b-dis  { background: transparent; color: #0163B5; border-color: #0163B5; }
+    .b-kko  { background: transparent; color: #8c7600; border-color: #c8a800; }
+    .b-jtbc { background: transparent; color: #b24000; border-color: #c84800; }
     .b-s1   { background: var(--green); color: #fff; border-color: var(--green); }
     .b-s2   { background: transparent; color: var(--green); border-color: var(--green); }
+    /* 어두운 배너 위 badge는 solid 유지 */
+    .work-banner-badge .b-tvn  { background: #fa0029; color: #fff; border-color: #fa0029; }
+    .work-banner-badge .b-mbc  { background: #111;   color: #fff; border-color: #111; }
+    .work-banner-badge .b-nfx  { background: #E50914; color: #fff; border-color: #E50914; }
+    .work-banner-badge .b-dis  { background: #0163B5; color: #fff; border-color: #0163B5; }
+    .work-banner-badge .b-kko  { background: #c8a800; color: #fff; border-color: #c8a800; }
+    .work-banner-badge .b-jtbc { background: #e05000; color: #fff; border-color: #e05000; }
 
     /* ════════════════════════════════════════
        WORKS
@@ -357,8 +397,9 @@
       align-items: center; text-align: center; gap: 16px;
     }
     .work-subtitle {
-      font-family: var(--font-ser); font-size: 16px; font-weight: 400; font-style: italic;
+      font-family: var(--font-ko); font-size: 16px; font-weight: 500;
       color: var(--fg); line-height: 1.7; max-width: 480px;
+      letter-spacing: -.01em;
     }
     .work-desc {
       font-size: 15px; font-weight: 400; color: var(--fg2);
@@ -429,7 +470,7 @@
       cursor: default;
     }
     .pd:hover {
-      background: #c8dacc;
+      background: var(--bg3);
       border-color: var(--border2);
     }
     .pd-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
@@ -467,11 +508,15 @@
     .contact-email {
       display: inline-block; font-family: var(--font-en);
       font-size: clamp(20px, 3vw, 32px); font-weight: 500;
-      color: var(--green); margin-bottom: 48px;
+      color: var(--green); margin-bottom: 24px;
       border-bottom: 1.5px solid rgba(42,110,58,.3);
       padding-bottom: 3px; transition: all .2s;
     }
     .contact-email:hover { color: var(--fg); border-color: var(--border2); }
+    .contact-cta-row {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
     .c-row { display: flex; gap: 44px; flex-wrap: wrap; }
     .c-item { display: flex; flex-direction: column; gap: 5px; }
     .c-l {
@@ -484,10 +529,18 @@
        FOOTER
     ════════════════════════════════════════ */
     footer {
-      background: var(--dk-bg); border-top: .5px solid var(--dk-border);
-      padding: 28px 48px;
+      background: var(--dk-bg);
+      border-top: .5px solid var(--dk-border);
+      padding: 36px 48px 32px;
       display: flex; justify-content: flex-end; align-items: center;
       flex-wrap: wrap; gap: 16px;
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute; left: 0; right: 0; top: -28px; height: 28px;
+      background: linear-gradient(to bottom, rgba(31,58,39,0), rgba(31,58,39,.22));
+      pointer-events: none;
     }
     .ft-r { font-size: 13px; color: var(--dk-cream2); line-height: 1.9; text-align: right; }
 
@@ -624,6 +677,10 @@
       </div>
     </div>
   </div>
+
+  <a href="#about" class="hero-scroll-hint" aria-label="아래로 스크롤">
+    SCROLL<span aria-hidden="true">↓</span>
+  </a>
 </section>
 
 <!-- ABOUT -->
@@ -832,8 +889,17 @@
     </p>
     <a id="cta-email" class="contact-email reveal d2"
        href="#" rel="nofollow noopener"
+       data-email-cta
        data-u="contact" data-d="monsterahaus.com"
        aria-label="이메일 보내기"></a>
+    <div class="contact-cta-row reveal d2">
+      <a class="btn-p" href="#" rel="nofollow noopener" data-email-cta>
+        문의 메일 보내기 <span aria-hidden="true">→</span>
+      </a>
+      <a class="btn-g" href="https://instagram.com/monstera.haus" target="_blank" rel="noopener noreferrer">
+        INSTAGRAM <span aria-hidden="true">↗</span>
+      </a>
+    </div>
     <div class="c-row reveal d3">
       <div class="c-item">
         <span class="c-l">ADDRESS</span>
@@ -1005,17 +1071,19 @@
 
   /* ── Email: 텍스트는 즉시, mailto는 상호작용 직전에 연결 ── */
   (function () {
-    const el = document.getElementById('cta-email');
-    if (!el) return;
-    const addr = el.dataset.u + '@' + el.dataset.d;
-    el.textContent = addr;
-    const hydrate = () => {
-      el.href = 'mailto:' + addr;
-      el.removeEventListener('pointerdown', hydrate);
-      el.removeEventListener('focus', hydrate);
-    };
-    el.addEventListener('pointerdown', hydrate);
-    el.addEventListener('focus', hydrate);
+    const src = document.getElementById('cta-email');
+    if (!src) return;
+    const addr = src.dataset.u + '@' + src.dataset.d;
+    src.textContent = addr;
+    document.querySelectorAll('[data-email-cta]').forEach(el => {
+      const hydrate = () => {
+        el.href = 'mailto:' + addr;
+        el.removeEventListener('pointerdown', hydrate);
+        el.removeEventListener('focus', hydrate);
+      };
+      el.addEventListener('pointerdown', hydrate);
+      el.addEventListener('focus', hydrate);
+    });
   })();
 </script>
 </body>
