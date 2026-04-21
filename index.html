@@ -525,6 +525,35 @@
     }
     .c-v { font-size: 15px; color: var(--fg2); }
 
+    /* ── Map ── */
+    .contact-map {
+      margin-top: 40px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: .5px solid var(--border);
+      background: var(--bg3);
+    }
+    .contact-map iframe {
+      display: block; width: 100%; height: 280px; border: 0;
+      filter: grayscale(.25) contrast(.95);
+      transition: filter .4s;
+    }
+    .contact-map:hover iframe,
+    .contact-map:focus-within iframe { filter: none; }
+    .map-links {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      margin-top: 14px;
+      font-family: var(--font-en);
+      font-size: 11px; letter-spacing: .14em; font-weight: 500;
+    }
+    .map-links a {
+      color: var(--muted2);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: color .2s, border-color .2s;
+    }
+    .map-links a:hover { color: var(--fg); border-color: var(--fg); }
+
     /* ════════════════════════════════════════
        FOOTER
     ════════════════════════════════════════ */
@@ -906,6 +935,19 @@
         <a href="https://instagram.com/monstera.haus"
            class="c-v" target="_blank" rel="noopener">@monstera.haus</a>
       </div>
+    </div>
+    <div class="contact-map reveal d4">
+      <iframe
+        title="몬스테라하우스 오피스 지도"
+        src="https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%EC%8B%9C+%EB%A7%88%ED%8F%AC%EA%B5%AC+%EC%9B%94%EB%93%9C%EC%BB%B5%EB%A1%9C32%EA%B8%B8+24&z=17&hl=ko&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="map-links reveal d4">
+      <a href="https://map.kakao.com/link/search/서울시 마포구 월드컵로32길 24"
+         target="_blank" rel="noopener noreferrer">카카오맵에서 보기 <span aria-hidden="true">↗</span></a>
+      <a href="https://map.naver.com/v5/search/서울시 마포구 월드컵로32길 24"
+         target="_blank" rel="noopener noreferrer">네이버 지도에서 보기 <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
