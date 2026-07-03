@@ -97,33 +97,6 @@
     img { display: block; max-width: 100%; }
 
     /* ════════════════════════════════════════
-       MONSTERA LEAF (shared decorative SVG)
-    ════════════════════════════════════════ */
-    .hleaf, .section-leaf, .mq-leaf, .lbl-leaf, .nav-leaf {
-      fill: currentColor;
-      pointer-events: none;
-    }
-    .hleaf {
-      position: absolute;
-      height: auto; aspect-ratio: 200 / 220;
-      transform-origin: 50% 90%;
-      animation: sway var(--dur, 10s) ease-in-out var(--delay, 0s) infinite alternate;
-      will-change: transform;
-    }
-    @keyframes sway {
-      from { transform: rotate(calc(var(--r, 0deg) - 4deg)) translateY(-5px); }
-      to   { transform: rotate(calc(var(--r, 0deg) + 5deg)) translateY(7px); }
-    }
-    .section-leaf {
-      position: absolute;
-      height: auto; aspect-ratio: 200 / 220;
-      color: var(--green);
-      opacity: .06;
-      z-index: 0;
-      will-change: transform;
-    }
-
-    /* ════════════════════════════════════════
        SCROLL PROGRESS
     ════════════════════════════════════════ */
     #progress {
@@ -169,18 +142,12 @@
       box-shadow: 0 2px 20px rgba(0,0,0,.25);
     }
     .nav-brand {
-      display: flex; align-items: center; gap: 9px;
+      display: flex; align-items: center;
       font-family: var(--font-en);
       font-size: 15px; font-weight: 500; letter-spacing: .03em;
       color: var(--dk-cream); transition: color .2s;
     }
     .nav-brand:hover { color: var(--dk-accent); }
-    .nav-leaf {
-      width: 17px; color: var(--dk-accent);
-      transform: rotate(-14deg);
-      transition: transform .8s cubic-bezier(.22,1,.36,1);
-    }
-    .nav-brand:hover .nav-leaf { transform: rotate(346deg); }
     .nav-sep { margin: 0 7px; color: var(--dk-accent); }
     .nav-sub { font-size: 15px; font-weight: 500; letter-spacing: .03em; color: var(--dk-cream); }
     .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -233,16 +200,6 @@
     @keyframes beam {
       from { transform: rotate(14deg) translateX(-70px); opacity: .3; }
       to   { transform: rotate(19deg) translateX(90px);  opacity: .7; }
-    }
-    /* ── 잎 레이어 (패럴랙스) ── */
-    .leaf-field { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-    .leaf-layer { position: absolute; inset: 0; pointer-events: none; will-change: transform; }
-    .leaf-fg { z-index: 3; }
-    .leaf-fg .hleaf { filter: blur(4px); }
-    #leaf-canvas {
-      position: absolute; inset: 0; z-index: 1;
-      width: 100%; height: 100%;
-      pointer-events: none;
     }
     .hero-content {
       position: relative; z-index: 2;
@@ -347,40 +304,6 @@
     .btn-g:hover { border-color: var(--fg); color: var(--fg); }
 
     /* ════════════════════════════════════════
-       MARQUEE
-    ════════════════════════════════════════ */
-    .marquee {
-      background: var(--dk-bg);
-      overflow: hidden;
-      padding: 15px 0;
-      border-top: .5px solid var(--dk-border);
-      border-bottom: .5px solid var(--dk-border);
-      position: relative; z-index: 2;
-    }
-    .marquee-track {
-      display: flex; width: max-content;
-      animation: mq 30s linear infinite;
-    }
-    .marquee-rev .marquee-track { animation-direction: reverse; }
-    @keyframes mq { to { transform: translateX(-50%); } }
-    .mq-group { display: flex; align-items: center; gap: 34px; padding-right: 34px; }
-    .mq-t {
-      font-family: var(--font-en);
-      font-size: 13px; font-weight: 600; letter-spacing: .32em;
-      color: var(--dk-cream); white-space: nowrap;
-    }
-    .mq-o {
-      color: transparent;
-      -webkit-text-stroke: 1px var(--dk-cream2);
-    }
-    .mq-leaf {
-      width: 17px; flex-shrink: 0;
-      color: var(--dk-accent);
-      animation: spin 13s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ════════════════════════════════════════
        SECTION SHELL
     ════════════════════════════════════════ */
     .sw { max-width: 1100px; margin: 0 auto; padding: 96px 48px; position: relative; z-index: 1; }
@@ -388,14 +311,6 @@
       font-family: var(--font-en);
       font-size: 12px; font-weight: 600; letter-spacing: .18em;
       margin-bottom: 40px;
-      display: flex; align-items: center; gap: 9px;
-    }
-    .lbl-leaf {
-      width: 15px; color: var(--accent);
-      transform: rotate(-16deg);
-      animation: sway 7s ease-in-out infinite alternate;
-      --r: -16deg;
-      transform-origin: 50% 90%;
     }
     .light-section { background: var(--bg); border-top: .5px solid var(--border); position: relative; overflow: hidden; }
     .light-section .s-label { color: var(--accent); }
@@ -608,18 +523,6 @@
       letter-spacing: .14em;
     }
     .work-card-teaser .work-body { opacity: .92; justify-content: center; }
-    .teaser-leaf {
-      position: absolute; z-index: 1;
-      width: 130px; height: auto; aspect-ratio: 200/220;
-      color: var(--dk-cream2); opacity: .25;
-      fill: currentColor;
-      right: -24px; bottom: -30px;
-      transform: rotate(-30deg);
-      animation: sway 9s ease-in-out infinite alternate;
-      --r: -30deg;
-      transform-origin: 50% 90%;
-      pointer-events: none;
-    }
 
     /* ════════════════════════════════════════
        TEAM
@@ -640,16 +543,6 @@
       background: var(--bg3);
       border-color: var(--border2);
     }
-    .pd-leaf {
-      position: absolute; right: -26px; top: -28px;
-      width: 110px; height: auto; aspect-ratio: 200/220;
-      color: var(--green); opacity: 0;
-      fill: currentColor;
-      transform: rotate(148deg) scale(.7);
-      transition: opacity .45s ease, transform .45s cubic-bezier(.22,1,.36,1);
-      pointer-events: none;
-    }
-    .pd:hover .pd-leaf { opacity: .1; transform: rotate(160deg) scale(1); }
     .pd-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
     .pd-av {
       width: 52px; height: 52px; min-width: 52px;
@@ -759,17 +652,6 @@
       background: linear-gradient(to bottom, rgba(31,58,39,0), rgba(31,58,39,.22));
       pointer-events: none;
     }
-    .ft-leaf {
-      position: absolute; left: 24px; bottom: -34px;
-      width: 150px; height: auto; aspect-ratio: 200/220;
-      color: var(--dk-cream2); opacity: .1;
-      fill: currentColor;
-      transform: rotate(24deg);
-      animation: sway 11s ease-in-out infinite alternate;
-      --r: 24deg;
-      transform-origin: 50% 90%;
-      pointer-events: none;
-    }
     .ft-r { font-size: 13px; color: var(--dk-cream2); line-height: 1.9; text-align: right; position: relative; z-index: 1; }
 
     /* ════════════════════════════════════════
@@ -812,8 +694,6 @@
       .reveal  { opacity: 1 !important; transform: none !important; filter: none !important; }
       .hero-logo { animation: none !important; }
       .hero-bg   { transform: none !important; }
-      #leaf-canvas { display: none !important; }
-      .marquee-track { animation: none !important; }
     }
 
     /* ════════════════════════════════════════
@@ -854,10 +734,6 @@
       footer { justify-content: flex-start; }
       .ft-r { text-align: left; }
       .hero-cta-row { flex-wrap: wrap; justify-content: center; }
-      .leaf-back .hleaf:nth-child(n+4) { display: none; }
-      .leaf-fg .hleaf { filter: blur(3px); }
-      .section-leaf { width: 220px !important; }
-      .mq-t { font-size: 11px; }
     }
   </style>
 
@@ -865,45 +741,12 @@
     <style>
       .reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
       .nav-toggle { display: none !important; }
-      #progress, #leaf-canvas { display: none !important; }
+      #progress { display: none !important; }
       @media (max-width: 768px) { .nav-links { display: flex !important; position: static; flex-direction: row; gap: 16px; padding: 0; box-shadow: none; border: 0; } }
     </style>
   </noscript>
 </head>
 <body>
-
-<!-- ═══ MONSTERA LEAF SVG DEF (사이트 전체 장식용) ═══ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <path id="mleaf-path" fill-rule="evenodd" d="M 95.5 191.9
-      Q 58.9 182.2 44.7 169.2
-      L 67.9 170.9 Q 75 170.7 68.6 167.6 L 33 155.5
-      Q 20.1 139.8 20.7 130.2
-      L 66.4 155.3 Q 73.1 157.8 68.2 152.6 L 16.6 110.8
-      Q 10.6 84.3 19.7 73.2
-      L 67.5 131.9 Q 73.3 136.3 71.3 129.3 L 28.4 51.9
-      Q 35.6 26.1 52.9 23.8
-      L 84.9 123 Q 88.4 129.3 88.5 122.1 L 69.2 14.4
-      Q 82 5 100 2
-      Q 118 5 130.8 14.4
-      L 111.5 122.1 Q 111.6 129.3 115.1 123 L 147.1 23.8
-      Q 164.4 26.1 171.6 51.9
-      L 128.7 129.3 Q 126.7 136.3 132.5 131.9 L 180.3 73.2
-      Q 189.4 84.3 183.4 110.8
-      L 131.8 152.6 Q 126.9 157.8 133.6 155.3 L 179.3 130.2
-      Q 179.9 139.8 167 155.5
-      L 131.4 167.6 Q 125 170.7 132.1 170.9 L 155.3 169.2
-      Q 139.9 182.1 104.5 191.9
-      L 104.5 218 L 95.5 218 Z
-      M 52.7 128.7 a 6.5 3 -135 1 0 -9.2 -9.2 a 6.5 3 -135 1 0 9.2 9.2 Z
-      M 147.3 128.7 a 6.5 3 -45 1 0 9.2 -9.2 a 6.5 3 -45 1 0 -9.2 9.2 Z
-      M 63.4 93.8 a 7 3.2 -114 1 0 -5.7 -12.8 a 7 3.2 -114 1 0 5.7 12.8 Z
-      M 136.6 93.8 a 7 3.2 -66 1 0 5.7 -12.8 a 7 3.2 -66 1 0 -5.7 12.8 Z
-      M 55.2 157 a 5.5 2.6 -157 1 0 -10.1 -4.3 a 5.5 2.6 -157 1 0 10.1 4.3 Z
-      M 100 82.2 a 7 3.2 -90 1 0 0 -14 a 7 3.2 -90 1 0 0 14 Z
-      M 144.8 157 a 5.5 2.6 -23 1 0 10.1 -4.3 a 5.5 2.6 -23 1 0 -10.1 4.3 Z" />
-  </defs>
-</svg>
 
 <!-- SCROLL PROGRESS -->
 <div id="progress" aria-hidden="true"></div>
@@ -911,7 +754,6 @@
 <!-- NAV -->
 <nav id="main-nav" aria-label="주 내비게이션">
   <a class="nav-brand" href="#hero">
-    <svg class="nav-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>
     monsterahaus<span class="nav-sep" aria-hidden="true">::</span><span class="nav-sub">creative powerhouse</span>
   </a>
   <button class="nav-toggle" type="button"
@@ -930,26 +772,6 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-rays" aria-hidden="true"></div>
-
-  <!-- 패럴랙스 잎 레이어: 뒤(작고 흐림) → 중간 -->
-  <div class="leaf-field" aria-hidden="true">
-    <div class="leaf-layer leaf-back" data-depth="0.18">
-      <svg class="hleaf" viewBox="0 0 200 220" style="left:7%;top:18%;width:clamp(46px,7vw,90px);--r:-25deg;--dur:9s;--delay:-2s;color:var(--green);opacity:.20"><use href="#mleaf-path"/></svg>
-      <svg class="hleaf" viewBox="0 0 200 220" style="left:20%;top:66%;width:clamp(40px,5.5vw,70px);--r:15deg;--dur:11s;--delay:-5s;color:var(--accent);opacity:.20"><use href="#mleaf-path"/></svg>
-      <svg class="hleaf" viewBox="0 0 200 220" style="left:76%;top:12%;width:clamp(50px,8vw,100px);--r:30deg;--dur:10s;--delay:-3s;color:var(--green);opacity:.20"><use href="#mleaf-path"/></svg>
-      <svg class="hleaf" viewBox="0 0 200 220" style="left:88%;top:56%;width:clamp(44px,6vw,80px);--r:-18deg;--dur:8s;--delay:-6s;color:var(--accent);opacity:.18"><use href="#mleaf-path"/></svg>
-      <svg class="hleaf" viewBox="0 0 200 220" style="left:45%;top:7%;width:clamp(36px,5vw,64px);--r:8deg;--dur:12s;--delay:-1s;color:var(--green);opacity:.15"><use href="#mleaf-path"/></svg>
-    </div>
-    <div class="leaf-layer leaf-mid" data-depth="0.4">
-      <svg class="hleaf" viewBox="0 0 200 220" style="left:2%;top:38%;width:clamp(90px,14vw,180px);--r:-40deg;--dur:10s;--delay:-4s;color:#2a6e3a;opacity:.30"><use href="#mleaf-path"/></svg>
-      <svg class="hleaf" viewBox="0 0 200 220" style="left:83%;top:28%;width:clamp(100px,15vw,200px);--r:35deg;--dur:12s;--delay:-8s;color:#2a6e3a;opacity:.28"><use href="#mleaf-path"/></svg>
-      <svg class="hleaf" viewBox="0 0 200 220" style="left:11%;top:76%;width:clamp(80px,12vw,150px);--r:20deg;--dur:9s;--delay:-2s;color:#35804a;opacity:.25"><use href="#mleaf-path"/></svg>
-      <svg class="hleaf" viewBox="0 0 200 220" style="left:74%;top:72%;width:clamp(86px,13vw,170px);--r:-30deg;--dur:11s;--delay:-6s;color:#35804a;opacity:.27"><use href="#mleaf-path"/></svg>
-    </div>
-  </div>
-
-  <!-- 떨어지는 잎 파티클 -->
-  <canvas id="leaf-canvas" aria-hidden="true"></canvas>
 
   <div class="hero-content">
     <h1 class="sr-only">monsterahaus — creative powerhouse</h1>
@@ -971,66 +793,15 @@
     </div>
   </div>
 
-  <!-- 전경 잎: 수풀 사이로 보는 느낌 (블러) -->
-  <div class="leaf-layer leaf-fg" data-depth="0.75" aria-hidden="true">
-    <svg class="hleaf" viewBox="0 0 200 220" style="left:-7%;top:-9%;width:clamp(170px,26vw,400px);--r:158deg;--dur:13s;--delay:-3s;color:#1f3a27;opacity:.28"><use href="#mleaf-path"/></svg>
-    <svg class="hleaf" viewBox="0 0 200 220" style="left:81%;top:-11%;width:clamp(180px,28vw,440px);--r:-148deg;--dur:15s;--delay:-9s;color:#1f3a27;opacity:.26"><use href="#mleaf-path"/></svg>
-    <svg class="hleaf" viewBox="0 0 200 220" style="left:-9%;top:70%;width:clamp(180px,27vw,420px);--r:38deg;--dur:12s;--delay:-5s;color:#254a30;opacity:.25"><use href="#mleaf-path"/></svg>
-    <svg class="hleaf" viewBox="0 0 200 220" style="left:79%;top:64%;width:clamp(190px,29vw,460px);--r:-36deg;--dur:14s;--delay:-7s;color:#254a30;opacity:.28"><use href="#mleaf-path"/></svg>
-  </div>
-
   <a href="#about" class="hero-scroll-hint" aria-label="아래로 스크롤">
     SCROLL<span aria-hidden="true">↓</span>
   </a>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <div class="mq-group">
-      <span class="mq-t">MONSTERAHAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">CREATIVE POWERHOUSE</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t">SEOUL</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">EST. 2025</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t">MONSTERAHAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">CREATIVE POWERHOUSE</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t">SEOUL</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">EST. 2025</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-    </div>
-    <div class="mq-group">
-      <span class="mq-t">MONSTERAHAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">CREATIVE POWERHOUSE</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t">SEOUL</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">EST. 2025</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t">MONSTERAHAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">CREATIVE POWERHOUSE</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t">SEOUL</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">EST. 2025</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-    </div>
-  </div>
-</div>
-
 <!-- ABOUT -->
 <section id="about" class="light-section">
-  <svg class="section-leaf" data-wm data-rot="18" viewBox="0 0 200 220" style="right:-90px;top:40px;width:380px" aria-hidden="true"><use href="#mleaf-path"/></svg>
   <div class="sw">
-    <h2 class="s-label reveal"><svg class="lbl-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>ABOUT</h2>
+    <h2 class="s-label reveal">ABOUT</h2>
     <div class="about-grid">
       <div class="about-body reveal d1">
         <p class="about-quote">"익숙함 속의 낯선 놀라움, 몬스테라하우스"</p>
@@ -1071,9 +842,8 @@
 
 <!-- WORKS -->
 <section id="works" class="sand-section">
-  <svg class="section-leaf" data-wm data-rot="-22" viewBox="0 0 200 220" style="left:-100px;bottom:30px;width:400px" aria-hidden="true"><use href="#mleaf-path"/></svg>
   <div class="sw">
-    <h2 class="s-label reveal"><svg class="lbl-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>WORKS</h2>
+    <h2 class="s-label reveal">WORKS</h2>
     <div class="works-grid">
     <div class="work-card reveal d1">
       <a class="work-banner"
@@ -1115,7 +885,6 @@
     <div class="work-card work-card-teaser reveal d2">
       <div class="work-banner work-banner-teaser" role="img" aria-label="다음 프로젝트 준비 중">
         <span class="teaser-pulse" aria-hidden="true"></span>
-        <svg class="teaser-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>
         <div class="work-banner-overlay">
           <div class="work-banner-badge"><span class="badge b-coming">NEXT · 2026</span></div>
           <h3 class="work-ko-title">UNTITLED</h3>
@@ -1132,12 +901,10 @@
 
 <!-- TEAM -->
 <section id="team" class="light-section">
-  <svg class="section-leaf" data-wm data-rot="26" viewBox="0 0 200 220" style="right:-110px;top:33%;width:420px" aria-hidden="true"><use href="#mleaf-path"/></svg>
   <div class="sw">
-    <h2 class="s-label reveal"><svg class="lbl-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>TEAM</h2>
+    <h2 class="s-label reveal">TEAM</h2>
     <div class="team-ceo">
       <div class="pd reveal">
-        <svg class="pd-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>
         <div class="pd-head">
           <div class="pd-av"><img src="assets/pd-jk.webp" alt="박진경" width="252" height="252" loading="lazy" decoding="async"></div>
           <div>
@@ -1154,7 +921,6 @@
         </div>
       </div>
       <div class="pd reveal d1">
-        <svg class="pd-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>
         <div class="pd-head">
           <div class="pd-av"><img src="assets/pd-js.webp" alt="이재석" width="252" height="252" loading="lazy" decoding="async"></div>
           <div>
@@ -1173,7 +939,6 @@
     </div>
     <div class="team-rest">
       <div class="pd reveal d2">
-        <svg class="pd-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>
         <div class="pd-head">
           <div class="pd-av"><img src="assets/pd-sj.webp" alt="손수정" width="252" height="252" loading="lazy" decoding="async"></div>
           <div>
@@ -1190,7 +955,6 @@
         </div>
       </div>
       <div class="pd reveal d3">
-        <svg class="pd-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>
         <div class="pd-head">
           <div class="pd-av"><img src="assets/pd-sd.webp" alt="문상돈" width="252" height="252" loading="lazy" decoding="async"></div>
           <div>
@@ -1208,7 +972,6 @@
         </div>
       </div>
       <div class="pd reveal d4">
-        <svg class="pd-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>
         <div class="pd-head">
           <div class="pd-av"><img src="assets/pd-jy.webp" alt="조주연" width="252" height="252" loading="lazy" decoding="async"></div>
           <div>
@@ -1229,10 +992,8 @@
 
 <!-- CONTACT -->
 <section id="contact" class="sand-section">
-  <svg class="section-leaf" data-wm data-rot="14" viewBox="0 0 200 220" style="right:-80px;top:60px;width:360px" aria-hidden="true"><use href="#mleaf-path"/></svg>
-  <svg class="section-leaf" data-wm data-rot="-30" viewBox="0 0 200 220" style="left:-90px;bottom:-40px;width:320px;opacity:.05" aria-hidden="true"><use href="#mleaf-path"/></svg>
   <div class="sw">
-    <h2 class="s-label reveal"><svg class="lbl-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>CONTACT</h2>
+    <h2 class="s-label reveal">CONTACT</h2>
     <p class="contact-lead reveal d1">
       방송사, 플랫폼, 브랜드와의 제작 협업 및<br />
       프로젝트 제안을 환영합니다.
@@ -1275,43 +1036,8 @@
   </div>
 </section>
 
-<!-- MARQUEE (reverse) -->
-<div class="marquee marquee-rev" aria-hidden="true">
-  <div class="marquee-track">
-    <div class="mq-group">
-      <span class="mq-t mq-o">MONSTERAHAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t">CONTACT@MONSTERAHAUS.COM</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">@MONSTERA.HAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">MONSTERAHAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t">CONTACT@MONSTERAHAUS.COM</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">@MONSTERA.HAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-    </div>
-    <div class="mq-group">
-      <span class="mq-t mq-o">MONSTERAHAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t">CONTACT@MONSTERAHAUS.COM</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">@MONSTERA.HAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">MONSTERAHAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t">CONTACT@MONSTERAHAUS.COM</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-      <span class="mq-t mq-o">@MONSTERA.HAUS</span>
-      <svg class="mq-leaf" viewBox="0 0 200 220"><use href="#mleaf-path"/></svg>
-    </div>
-  </div>
-</div>
-
 <!-- FOOTER -->
 <footer>
-  <svg class="ft-leaf" viewBox="0 0 200 220" aria-hidden="true"><use href="#mleaf-path"/></svg>
   <div class="ft-r">
     주식회사 몬스테라하우스 &nbsp;|&nbsp; 대표이사 박진경 · 이재석<br />
     사업자등록번호 257-88-03372<br />
@@ -1376,11 +1102,8 @@
   const heroContent  = document.querySelector('.hero-content');
   const heroLogoWrap = document.querySelector('.hz-logo');
   const progressEl   = document.getElementById('progress');
-  const leafLayers   = [...document.querySelectorAll('.leaf-layer')];
-  const wmLeaves     = [...document.querySelectorAll('[data-wm]')];
 
   let scrollY = 0, tiltX = 0, tiltY = 0;
-  let pmx = 0, pmy = 0;   /* 마우스 패럴랙스 (-1 ~ 1) */
 
   const canHover = matchMedia('(hover:hover) and (pointer:fine)').matches;
   const reducedMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -1401,29 +1124,6 @@
       tiltX = 0; tiltY = 0;
       applyHeroTransform('.6s cubic-bezier(.22,1,.36,1)');
     }
-  }
-
-  /* ── 잎 레이어: 스크롤 + 마우스 패럴랙스 ── */
-  function layoutLeafLayers() {
-    if (reducedMotion) return;
-    leafLayers.forEach(l => {
-      const d = parseFloat(l.dataset.depth) || 0;
-      l.style.transform =
-        `translate3d(${pmx * d * 34}px, ${scrollY * d * 0.3 + pmy * d * 22}px, 0)`;
-    });
-  }
-
-  /* ── 섹션 워터마크 잎: 스크롤에 따라 회전 ── */
-  function updateWatermarks() {
-    if (reducedMotion) return;
-    const wh = window.innerHeight;
-    wmLeaves.forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (r.bottom < 0 || r.top > wh) return;
-      const p = (wh - r.top) / (wh + r.height);   /* 0(진입) → 1(퇴장) */
-      const base = parseFloat(el.dataset.rot) || 0;
-      el.style.transform = `rotate(${base + p * 36 - 18}deg) translateY(${p * -28}px)`;
-    });
   }
 
   /* ── Active section: IntersectionObserver ── */
@@ -1456,15 +1156,12 @@
       if (scrollY < heroH) {
         heroBg.style.transform = `translateY(${scrollY * 0.35}px)`;
         applyHeroTransform(null);
-        layoutLeafLayers();
       }
-      updateWatermarks();
       scrollTicking = false;
     });
   }, { passive: true });
-  updateWatermarks();
 
-  /* ── 히어로/팀카드 틸트 + 잎 패럴랙스 — hover 디바이스 + 모션 허용 시에만 ── */
+  /* ── 히어로/팀카드 틸트 — hover 디바이스 + 모션 허용 시에만 ── */
   if (canHover && !reducedMotion) {
     let heroMove = null, heroRAF = null;
     heroEl.addEventListener('mousemove', (e) => {
@@ -1472,10 +1169,6 @@
       if (heroRAF) return;
       heroRAF = requestAnimationFrame(() => {
         const hr = heroEl.getBoundingClientRect();
-        pmx = (heroMove.x - hr.left) / hr.width  * 2 - 1;
-        pmy = (heroMove.y - hr.top)  / hr.height * 2 - 1;
-        layoutLeafLayers();
-
         const lr = heroLogoWrap.getBoundingClientRect();
         const overLogo = heroMove.x >= lr.left && heroMove.x <= lr.right
                       && heroMove.y >= lr.top  && heroMove.y <= lr.bottom;
@@ -1493,8 +1186,6 @@
     });
     heroEl.addEventListener('mouseleave', () => {
       resetTilt();
-      pmx = 0; pmy = 0;
-      layoutLeafLayers();
       heroContent.style.willChange = '';
     });
 
@@ -1523,92 +1214,6 @@
       });
     });
   }
-
-  /* ── 떨어지는 잎 캔버스 (히어로) — 클릭하면 잎이 터집니다 ── */
-  (function leafCanvas() {
-    if (reducedMotion) return;
-    const cv = document.getElementById('leaf-canvas');
-    if (!cv || !window.Path2D) return;
-    const ctx = cv.getContext('2d');
-    const leafPath = new Path2D(document.getElementById('mleaf-path').getAttribute('d'));
-    const COLORS = ['#2a6e3a', '#4aaa60', '#1f3a27', '#5cb830', '#35804a'];
-    let W = 0, H = 0, dpr = 1;
-
-    function resize() {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = heroEl.clientWidth; H = heroEl.clientHeight;
-      cv.width = W * dpr; cv.height = H * dpr;
-    }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    const N = matchMedia('(max-width:768px)').matches ? 9 : 16;
-    const rnd = (a, b) => a + Math.random() * (b - a);
-    const mkLeaf = (anywhere) => ({
-      x: rnd(0, W), y: anywhere ? rnd(0, H) : -40,
-      s: rnd(9, 24),
-      r: rnd(0, Math.PI * 2), vr: rnd(-.7, .7),
-      vy: rnd(14, 38),
-      ph: rnd(0, Math.PI * 2), amp: rnd(10, 34),
-      c: COLORS[(Math.random() * COLORS.length) | 0],
-      a: rnd(.10, .26),
-      t: rnd(0, 100),
-    });
-    const leaves = Array.from({ length: N }, () => mkLeaf(true));
-    const bursts = [];
-
-    heroEl.addEventListener('click', (e) => {
-      if (e.target.closest('a, button')) return;
-      const rect = cv.getBoundingClientRect();
-      const x = e.clientX - rect.left, y = e.clientY - rect.top;
-      for (let i = 0; i < 9; i++) {
-        const ang = rnd(0, Math.PI * 2), sp = rnd(90, 260);
-        bursts.push({
-          x, y,
-          vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 70,
-          s: rnd(7, 15), r: rnd(0, 6), vr: rnd(-9, 9),
-          life: 1,
-          c: COLORS[(Math.random() * COLORS.length) | 0],
-        });
-      }
-    });
-
-    let visible = true;
-    new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(heroEl);
-
-    function drawLeaf(x, y, s, r, c, a) {
-      ctx.save();
-      ctx.translate(x, y); ctx.rotate(r);
-      const k = s / 200;
-      ctx.scale(k, k); ctx.translate(-100, -110);
-      ctx.globalAlpha = Math.max(0, a);
-      ctx.fillStyle = c;
-      ctx.fill(leafPath, 'evenodd');
-      ctx.restore();
-    }
-
-    let last = performance.now();
-    (function frame(now) {
-      requestAnimationFrame(frame);
-      const dt = Math.min((now - last) / 1000, .05); last = now;
-      if (!visible || document.hidden) return;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, W, H);
-      for (const l of leaves) {
-        l.t += dt; l.y += l.vy * dt; l.r += l.vr * dt;
-        if (l.y > H + 50) Object.assign(l, mkLeaf(false));
-        drawLeaf(l.x + Math.sin(l.t * .8 + l.ph) * l.amp, l.y, l.s, l.r, l.c, l.a);
-      }
-      for (let i = bursts.length - 1; i >= 0; i--) {
-        const b = bursts[i];
-        b.life -= dt * 1.05;
-        if (b.life <= 0) { bursts.splice(i, 1); continue; }
-        b.vy += 230 * dt;
-        b.x += b.vx * dt; b.y += b.vy * dt; b.r += b.vr * dt;
-        drawLeaf(b.x, b.y, b.s, b.r, b.c, b.life * .85);
-      }
-    })(last);
-  })();
 
   /* ── Mobile nav toggle ── */
   (function () {
