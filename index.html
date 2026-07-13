@@ -154,7 +154,7 @@
     .nav-links a {
       font-family: var(--font-en);
       font-size: 12px; font-weight: 500; letter-spacing: .14em;
-      color: var(--dk-muted2); transition: color .2s;
+      color: var(--dk-cream2); transition: color .2s;
     }
     .nav-links a:hover, .nav-links a.on { color: var(--dk-cream); }
 
@@ -163,6 +163,7 @@
     ════════════════════════════════════════ */
     #hero {
       min-height: 100vh;
+      min-height: 100svh; /* 모바일 주소창 제외한 실제 가시 영역 기준 */
       display: flex; flex-direction: column;
       justify-content: center; align-items: center; text-align: center;
       padding: 120px 24px 80px;
@@ -742,6 +743,8 @@
       .reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
       .nav-toggle { display: none !important; }
       #progress { display: none !important; }
+      /* JS로 채워지는 요소들: JS 없으면 숨기고 noscript 폴백으로 대체 */
+      [data-email-cta], .contact-map, .map-links { display: none !important; }
       @media (max-width: 768px) { .nav-links { display: flex !important; position: static; flex-direction: row; gap: 16px; padding: 0; box-shadow: none; border: 0; } }
     </style>
   </noscript>
@@ -776,8 +779,8 @@
   <div class="hero-content">
     <h1 class="sr-only">monsterahaus — creative powerhouse</h1>
     <div class="hz-logo">
-      <img class="hero-logo" src="assets/logo_big.gif" alt="monsterahaus"
-           width="1024" height="1024" fetchpriority="high" decoding="async" />
+      <img class="hero-logo" src="assets/logo_big.webp" alt="monsterahaus"
+           width="840" height="840" fetchpriority="high" decoding="async" />
     </div>
     <div class="hz-tagline">
       <p class="hero-tagline">an entertainment production house</p>
@@ -1003,6 +1006,9 @@
        data-email-cta
        data-u="contact" data-d="monsterahaus.com"
        aria-label="이메일 보내기"></a>
+    <noscript>
+      <span class="contact-email">contact&#64;monsterahaus.com</span>
+    </noscript>
     <div class="contact-cta-row reveal d2">
       <a class="btn-p" href="#" rel="nofollow noopener" data-email-cta>
         문의 메일 보내기 <span aria-hidden="true">→</span>
