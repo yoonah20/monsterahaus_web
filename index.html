@@ -13,15 +13,17 @@
   <meta property="og:description" content="예능 콘텐츠 제작 스튜디오" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://monsterahaus.com/" />
-  <meta property="og:image" content="https://monsterahaus.com/assets/bg-hero.webp" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1037" />
+  <meta property="og:image" content="https://monsterahaus.com/assets/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="몬스테라하우스 로고 — 몬스테라 잎 심볼과 monsterahaus 워드마크" />
   <meta property="og:locale" content="ko_KR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="monsterahaus :: creative powerhouse" />
   <meta name="twitter:description" content="예능 콘텐츠 제작 스튜디오" />
-  <meta name="twitter:image" content="https://monsterahaus.com/assets/bg-hero.webp" />
+  <meta name="twitter:image" content="https://monsterahaus.com/assets/og.jpg" />
   <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
   <link rel="preload" as="image" href="assets/bg-hero.webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -361,7 +363,7 @@
     ════════════════════════════════════════ */
     .badge {
       font-family: var(--font-en);
-      font-size: 9px; font-weight: 700; letter-spacing: .1em;
+      font-size: 10px; font-weight: 700; letter-spacing: .1em;
       padding: 3px 9px; border-radius: 2px;
       border: 1px solid transparent; line-height: 1.4;
       display: inline-block;
@@ -487,7 +489,7 @@
       display: flex; align-items: center; justify-content: center; gap: 12px;
       font-family: var(--font-en); font-size: 13px; font-weight: 500; color: var(--muted2);
     }
-    .season-item .badge { font-size: 9px; }
+    .season-item .badge { font-size: 10px; }
 
     /* ── Coming Soon 티저 카드 ── */
     .work-banner-teaser {
@@ -562,7 +564,7 @@
     }
     .pd-works { display: flex; flex-direction: column; gap: 9px; }
     .pd-w { display: flex; align-items: baseline; gap: 8px; font-size: 14px; color: var(--fg2); }
-    .pd-w .badge { font-size: 8px; padding: 2px 7px; flex-shrink: 0; }
+    .pd-w .badge { font-size: 10px; padding: 2px 7px; flex-shrink: 0; }
     .pd-w .yr {
       font-family: var(--font-en); font-size: 11px; font-weight: 400;
       color: var(--muted); letter-spacing: .02em;
@@ -663,6 +665,14 @@
       padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
       white-space: nowrap; border: 0;
     }
+    .skip-link {
+      position: fixed; top: -100px; left: 16px; z-index: 200;
+      background: var(--fg); color: var(--bg);
+      font-family: var(--font-ko); font-size: 14px; font-weight: 600;
+      padding: 12px 20px; border-radius: 0 0 4px 4px;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 0; }
 
     /* ════════════════════════════════════════
        NAV TOGGLE (mobile)
@@ -751,6 +761,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">본문 바로가기</a>
+
 <!-- SCROLL PROGRESS -->
 <div id="progress" aria-hidden="true"></div>
 
@@ -769,6 +781,8 @@
     <li><a href="#contact">CONTACT</a></li>
   </ul>
 </nav>
+
+<main id="main">
 
 <!-- HERO -->
 <section id="hero">
@@ -1041,6 +1055,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
