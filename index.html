@@ -357,9 +357,11 @@
     .poster-img {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
-      object-fit: cover; object-position: 34% 28%;
+      object-fit: cover; object-position: center;
       transition: transform .6s ease;
     }
+    /* 완성 포스터 카드: 자체 텍스트가 있으므로 오버레이 최소화 */
+    .poster-film { background: #10240f; }
     .poster:hover .poster-img { transform: scale(1.05); }
     .poster-shade {
       position: absolute; inset: 0; z-index: 1;
@@ -953,24 +955,15 @@
     <!-- 첫 화면 포스터 3장 (세로 포스터 전달받으면 아래 이미지·티저만 교체) -->
     <div class="poster-wall">
 
-      <!-- 1) 보검 매직컬 — 실제 세로 포스터 도착 시 assets/poster-bm1.webp 로 교체 -->
-      <a class="poster"
+      <!-- 1) 보검 매직컬 — 실제 세로 포스터(제목·크레딧·방영일 인쇄됨) -->
+      <a class="poster poster-film"
          href="https://www.youtube.com/playlist?list=PLgbB1gJhmG7DCP3flJX_7QLspehWe-e1h"
          target="_blank" rel="noopener noreferrer"
          aria-label="보검 매직컬 예고편 재생 (YouTube, 새 창)">
-        <img class="poster-img" src="assets/2026-bm1.webp" alt="보검 매직컬 포스터"
-             width="922" height="501" fetchpriority="high" decoding="async" />
-        <div class="poster-shade"></div>
+        <img class="poster-img" src="assets/poster-bm1.webp"
+             alt="보검 매직컬 포스터 — 박보검·이상이·곽동연, 1월 30일 tvN 첫 방송"
+             width="1000" height="1416" fetchpriority="high" decoding="async" />
         <div class="poster-play" aria-hidden="true"><div class="play-btn">▶</div></div>
-        <div class="poster-info">
-          <div class="poster-badges">
-            <span class="badge b-tvn">tvN</span>
-            <span class="badge b-s1">S1</span>
-          </div>
-          <p class="poster-title">보검 매직컬</p>
-          <p class="poster-en">The Village Barber</p>
-          <p class="poster-meta">2026.01.30 방영</p>
-        </div>
       </a>
 
       <!-- 2) 보검 매직컬2 — 실제 세로 포스터 도착 시 assets/poster-bm2.webp 로 교체 -->
