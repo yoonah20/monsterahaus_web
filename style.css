@@ -13,7 +13,7 @@
 @media(max-width:760px){.brand .brand-symbol{width:45px;height:36px}}
 
 /* Face-focused square framing, preserving the supplied original. */
-.portrait{position:relative;width:100%;aspect-ratio:1;overflow:hidden;background:#deddd1}
+.portrait{position:relative;width:100%;aspect-ratio:1;overflow:hidden;background:#e3dfbb;border:0.5rem solid #e3dfbb;outline:1px solid #203e301a;outline-offset:-1px}
 .portrait img{position:absolute;display:block;max-width:none;filter:none;}
 .portrait-jk img{width:150.0000%;height:225.0000%;left:-40.0000%;top:-15.0000%;}
 
@@ -231,20 +231,18 @@
  .work-meta{font-size:.75rem}
 }
 
-/* Restore the expressive people heading. */
-.people-heading h2{font-size:clamp(38px,5vw,74px);font-weight:500;letter-spacing:-.065em;line-height:1.12}
-@media(max-width:760px){.people-heading h2{font-size:clamp(32px,8.5vw,44px)}}
-
-.people-heading h2{font-size:clamp(34px,4.5vw,66px)}
-@media(max-width:760px){.people-heading h2{font-size:clamp(30px,7.7vw,40px)}}
+/* Use the studio headline size for all section headings. */
+:root{--section-heading-size:clamp(36px,3.3vw,46px)}
+.section-line h1,.people-heading h2{font-size:var(--section-heading-size);font-weight:500;letter-spacing:-.065em;line-height:1.12}
+@media(max-width:760px){:root{--section-heading-size:clamp(30px,8vw,38px)}}
 
 /* The two studio headlines introduce the section directly. */
 .studio{padding-top:0}
 .studio-overview{padding-top:52px}
-.studio-story h2,.studio-connect .connect-heading{font-size:clamp(36px,3.3vw,46px);font-weight:500;line-height:1.25;letter-spacing:-.045em;margin-bottom:28px}
+.studio-story h2,.studio-connect .connect-heading{font-size:var(--section-heading-size);font-weight:500;line-height:1.25;letter-spacing:-.045em;margin-bottom:28px}
 @media(max-width:760px){
  .studio-overview{padding-top:34px}
- .studio-story h2,.studio-connect .connect-heading{font-size:clamp(30px,8vw,38px);margin-bottom:22px}
+ .studio-story h2,.studio-connect .connect-heading{margin-bottom:22px}
 }
 
 .studio-connect .studio-social{flex-direction:column;align-items:flex-start}
@@ -349,3 +347,10 @@
 
 /* Size mobile profile slides to the portraits, removing unused card space. */
 @media(max-width:760px){.people-grid{grid-auto-columns:190px;column-gap:20px}}
+
+/* Keep mobile navigation compact with only the brand visible. */
+@media(max-width:760px){
+ .masthead nav{display:none}
+ .masthead{padding-block:10px;flex-wrap:nowrap}
+ html{scroll-padding-top:80px}
+}
