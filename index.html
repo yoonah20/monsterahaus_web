@@ -168,7 +168,7 @@
       min-height: 100svh; /* 모바일 주소창 제외한 실제 가시 영역 기준 */
       display: flex; flex-direction: column;
       justify-content: center; align-items: center; text-align: center;
-      padding: 120px 24px 80px;
+      padding: 92px 24px 46px;
       position: relative;
       overflow: hidden;
     }
@@ -206,6 +206,7 @@
     }
     .hero-content {
       position: relative; z-index: 2;
+      width: 100%;
       display: flex; flex-direction: column;
       align-items: center; text-align: center;
       transform-style: preserve-3d;
@@ -305,6 +306,136 @@
       padding: 13px 28px; border-radius: 2px; transition: all .2s;
     }
     .btn-g:hover { border-color: var(--fg); color: var(--fg); }
+
+    /* ════════════════════════════════════════
+       BRAND STRIP (포트폴리오 히어로 상단)
+    ════════════════════════════════════════ */
+    .brand-strip {
+      display: flex; flex-direction: column; align-items: center; gap: 9px;
+      margin-bottom: clamp(22px, 4vh, 40px);
+      animation: fadeUp .9s .1s cubic-bezier(.22,1,.36,1) both;
+    }
+    .brand-mark {
+      width: auto; height: clamp(46px, 6.5vw, 62px);
+      filter: drop-shadow(0 6px 20px rgba(31,58,39,.16));
+    }
+    .brand-tag {
+      font-family: var(--font-en);
+      font-size: 11px; font-weight: 500; letter-spacing: .2em;
+      color: var(--muted); text-transform: uppercase;
+    }
+
+    /* ════════════════════════════════════════
+       POSTER WALL (첫 화면 포스터 3장)
+    ════════════════════════════════════════ */
+    .poster-wall {
+      display: flex; justify-content: center;
+      gap: clamp(12px, 1.8vw, 22px);
+      width: 100%; max-width: 980px;
+    }
+    .poster {
+      position: relative;
+      flex: 1 1 0; min-width: 0;
+      max-width: min(300px, calc((100svh - 300px) * .6667));
+      aspect-ratio: 2 / 3;
+      border-radius: 8px; overflow: hidden;
+      background: var(--fg);
+      box-shadow: 0 18px 44px rgba(31,58,39,.20);
+      transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s;
+      animation: posterIn .9s cubic-bezier(.22,1,.36,1) both;
+    }
+    .poster:nth-child(1) { animation-delay: .20s; }
+    .poster:nth-child(2) { animation-delay: .30s; }
+    .poster:nth-child(3) { animation-delay: .40s; }
+    @keyframes posterIn {
+      from { opacity: 0; transform: translateY(26px) scale(.97); }
+      to   { opacity: 1; transform: none; }
+    }
+    .poster:hover { transform: translateY(-6px); box-shadow: 0 26px 60px rgba(31,58,39,.30); }
+
+    /* 실사 포스터 이미지 (교체 지점) */
+    .poster-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: 34% 28%;
+      transition: transform .6s ease;
+    }
+    .poster:hover .poster-img { transform: scale(1.05); }
+    .poster-shade {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom,
+                  rgba(15,31,19,0) 28%, rgba(15,31,19,.55) 70%, rgba(15,31,19,.9) 100%);
+    }
+    /* 슬라이드 하이라이트 */
+    .poster::after {
+      content: '';
+      position: absolute; top: 0; left: -80%;
+      width: 55%; height: 100%; z-index: 2;
+      background: linear-gradient(105deg, transparent, rgba(255,255,255,.22), transparent);
+      transform: skewX(-18deg);
+      pointer-events: none;
+      transition: left .8s ease;
+    }
+    .poster:hover::after { left: 150%; }
+
+    .poster-info {
+      position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+      padding: clamp(14px, 1.6vw, 20px);
+      display: flex; flex-direction: column; gap: 6px;
+      text-align: left;
+    }
+    .poster-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 2px; }
+    .poster-title {
+      font-family: var(--font-ko);
+      font-size: clamp(18px, 2.1vw, 23px); font-weight: 700;
+      color: #fff; line-height: 1.15;
+    }
+    .poster-en {
+      font-family: var(--font-ser);
+      font-size: 12px; font-style: italic; font-weight: 300;
+      color: rgba(255,255,255,.66); letter-spacing: .03em;
+    }
+    .poster-meta {
+      font-family: var(--font-en);
+      font-size: 11px; font-weight: 500; letter-spacing: .04em;
+      color: rgba(255,255,255,.82); margin-top: 2px;
+    }
+    .poster-play {
+      position: absolute; inset: 0; z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .3s;
+    }
+    .poster:hover .poster-play { opacity: 1; }
+
+    /* 티저(임시) 포스터 배경 */
+    .poster-teaser {
+      background-image:
+        linear-gradient(155deg, rgba(31,58,39,.9), rgba(42,110,58,.82)),
+        url('assets/bg-hero.webp');
+      background-size: cover; background-position: center;
+    }
+    .poster-teaser.dev {
+      background-image:
+        linear-gradient(155deg, rgba(18,33,22,.94), rgba(31,58,39,.9)),
+        url('assets/bg-hero.webp');
+    }
+    .poster-wm {
+      position: absolute; top: 42%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-en); font-weight: 700; line-height: 1;
+      font-size: clamp(52px, 8vw, 90px); letter-spacing: .03em;
+      color: rgba(243,239,225,.09);
+      pointer-events: none; z-index: 0;
+    }
+    .poster-teaser .teaser-pulse { top: 16px; right: 16px; }
+
+    /* 어두운 포스터 위 badge — solid/가독성 확보 */
+    .poster-badges .b-tvn { background: #fa0029; color: #fff; border-color: #fa0029; }
+    .poster-badges .b-s1  { background: var(--dk-accent); color: #10240f; border-color: var(--dk-accent); }
+    .badge.b-season {
+      background: rgba(255,255,255,.14); color: #fff;
+      border: 1px solid rgba(255,255,255,.5); letter-spacing: .1em;
+    }
 
     /* ════════════════════════════════════════
        SECTION SHELL
@@ -745,6 +876,25 @@
       footer { justify-content: flex-start; }
       .ft-r { text-align: left; }
       .hero-cta-row { flex-wrap: wrap; justify-content: center; }
+      /* 포스터 월 → 가로 스크롤 캐러셀 */
+      #hero { padding: 84px 0 64px; }
+      .brand-strip { padding: 0 20px; }
+      .poster-wall {
+        justify-content: flex-start;
+        max-width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 14px;
+        padding: 6px 20px 16px;
+        scrollbar-width: none;
+      }
+      .poster-wall::-webkit-scrollbar { display: none; }
+      .poster {
+        flex: 0 0 66%;
+        max-width: none;
+        scroll-snap-align: center;
+      }
     }
   </style>
 
@@ -791,22 +941,66 @@
   <div class="hero-rays" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <h1 class="sr-only">monsterahaus — creative powerhouse</h1>
-    <div class="hz-logo">
-      <img class="hero-logo" src="assets/logo_big.webp" alt="monsterahaus"
+    <h1 class="sr-only">monsterahaus — 예능 콘텐츠 제작 스튜디오 작품 라인업</h1>
+
+    <!-- 얇은 브랜드 스트립 -->
+    <div class="brand-strip">
+      <img class="brand-mark" src="assets/logo_big.webp" alt="monsterahaus"
            width="1024" height="1024" fetchpriority="high" decoding="async" />
+      <p class="brand-tag">an entertainment production house &nbsp;·&nbsp; Seoul, Est. 2025</p>
     </div>
-    <div class="hz-tagline">
-      <p class="hero-tagline">an entertainment production house</p>
-    </div>
-    <div class="hz-meta">
-      <p class="hero-meta">Seoul, Korea &nbsp;·&nbsp; Est. 2025</p>
-    </div>
-    <div class="hz-cta">
-      <div class="hero-cta-row">
-        <a href="#works" class="btn-p">WORKS <span aria-hidden="true">↓</span></a>
-        <a href="#contact" class="btn-g">문의하기</a>
+
+    <!-- 첫 화면 포스터 3장 (세로 포스터 전달받으면 아래 이미지·티저만 교체) -->
+    <div class="poster-wall">
+
+      <!-- 1) 보검 매직컬 — 실제 세로 포스터 도착 시 assets/poster-bm1.webp 로 교체 -->
+      <a class="poster"
+         href="https://www.youtube.com/playlist?list=PLgbB1gJhmG7DCP3flJX_7QLspehWe-e1h"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="보검 매직컬 예고편 재생 (YouTube, 새 창)">
+        <img class="poster-img" src="assets/2026-bm1.webp" alt="보검 매직컬 포스터"
+             width="922" height="501" fetchpriority="high" decoding="async" />
+        <div class="poster-shade"></div>
+        <div class="poster-play" aria-hidden="true"><div class="play-btn">▶</div></div>
+        <div class="poster-info">
+          <div class="poster-badges">
+            <span class="badge b-tvn">tvN</span>
+            <span class="badge b-s1">S1</span>
+          </div>
+          <p class="poster-title">보검 매직컬</p>
+          <p class="poster-en">The Village Barber</p>
+          <p class="poster-meta">2026.01.30 방영</p>
+        </div>
+      </a>
+
+      <!-- 2) 보검 매직컬2 — 실제 세로 포스터 도착 시 assets/poster-bm2.webp 로 교체 -->
+      <div class="poster poster-teaser" role="img" aria-label="보검 매직컬2 — 2026 연내 방영 예정">
+        <span class="poster-wm" aria-hidden="true">S2</span>
+        <div class="poster-info">
+          <div class="poster-badges">
+            <span class="badge b-tvn">tvN</span>
+            <span class="badge b-season">SEASON 2</span>
+          </div>
+          <p class="poster-title">보검 매직컬2</p>
+          <p class="poster-en">The Village Barber S2</p>
+          <p class="poster-meta">2026 연내 방영 예정</p>
+        </div>
       </div>
+
+      <!-- 3) 개발 중 -->
+      <div class="poster poster-teaser dev" role="img" aria-label="차기작 개발 중">
+        <span class="teaser-pulse" aria-hidden="true"></span>
+        <span class="poster-wm" aria-hidden="true">TBA</span>
+        <div class="poster-info">
+          <div class="poster-badges">
+            <span class="badge b-coming">NEXT · 2026</span>
+          </div>
+          <p class="poster-title">개발 중</p>
+          <p class="poster-en">In Development</p>
+          <p class="poster-meta">곧 공개됩니다</p>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1122,7 +1316,6 @@
   const heroBg       = document.querySelector('.hero-bg');
   const heroEl       = document.getElementById('hero');
   const heroContent  = document.querySelector('.hero-content');
-  const heroLogoWrap = document.querySelector('.hz-logo');
   const progressEl   = document.getElementById('progress');
 
   let scrollY = 0, tiltX = 0, tiltY = 0;
@@ -1183,34 +1376,8 @@
     });
   }, { passive: true });
 
-  /* ── 히어로/팀카드 틸트 — hover 디바이스 + 모션 허용 시에만 ── */
+  /* ── 팀카드 틸트 — hover 디바이스 + 모션 허용 시에만 ── */
   if (canHover && !reducedMotion) {
-    let heroMove = null, heroRAF = null;
-    heroEl.addEventListener('mousemove', (e) => {
-      heroMove = { x: e.clientX, y: e.clientY };
-      if (heroRAF) return;
-      heroRAF = requestAnimationFrame(() => {
-        const hr = heroEl.getBoundingClientRect();
-        const lr = heroLogoWrap.getBoundingClientRect();
-        const overLogo = heroMove.x >= lr.left && heroMove.x <= lr.right
-                      && heroMove.y >= lr.top  && heroMove.y <= lr.bottom;
-        if (overLogo) {
-          tiltX = -(heroMove.y - hr.top  - hr.height / 2) / (hr.height / 2) * 6;
-          tiltY =  (heroMove.x - hr.left - hr.width  / 2) / (hr.width  / 2) * 6;
-          heroContent.style.willChange = 'transform';
-          applyHeroTransform('.08s ease-out');
-        } else {
-          resetTilt();
-          heroContent.style.willChange = '';
-        }
-        heroRAF = null;
-      });
-    });
-    heroEl.addEventListener('mouseleave', () => {
-      resetTilt();
-      heroContent.style.willChange = '';
-    });
-
     document.querySelectorAll('.pd').forEach(card => {
       let cardMove = null, cardRAF = null;
       card.addEventListener('mousemove', (e) => {
