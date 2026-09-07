@@ -323,3 +323,14 @@
 .works>.section-line,.people-heading{max-width:1160px;margin-inline:auto}
 @media(min-width:1500px){.works>.section-line,.people-heading{max-width:1260px}}
 @media(max-width:760px){.works>.section-line{max-width:none}.people-heading{max-width:460px}}
+
+/* Mobile producers: horizontal browsing, full credits retained. */
+@media(max-width:760px){
+ .people-grid{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(76%,280px);gap:24px;max-width:none;width:calc(100% + 40px);margin-inline:-20px;padding:0 20px 16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:20px;scrollbar-width:thin;scrollbar-color:var(--muted) transparent;align-items:start}
+ .people-grid .person{scroll-snap-align:start;--portrait-width:100%;--portrait-max:100%;min-width:0}
+ .people-grid .person .portrait{width:100%;max-width:190px;margin-left:0;margin-right:auto}
+ .people-grid .person .person-name,.people-grid .person .role,.people-grid .person .credits{width:100%;max-width:none;margin-inline:0}
+ .people-grid .person .credits::before{width:100%;max-width:190px}
+ .people-grid .person .role{min-height:40px}
+}
+@media(max-width:360px){.people-grid{width:calc(100% + 32px);margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px}}
