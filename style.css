@@ -346,3 +346,6 @@
 /* Optical alignment compensates for the typeface's left side bearings. */
 .works #works-title{position:relative;left:-.045em}
 .people #people-title{position:relative;left:-.055em}
+
+/* Size mobile profile slides to the portraits, removing unused card space. */
+@media(max-width:760px){.people-grid{grid-auto-columns:190px;column-gap:20px}}
