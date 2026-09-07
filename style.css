@@ -354,3 +354,11 @@
  .masthead{padding-block:10px;flex-wrap:nowrap}
  html{scroll-padding-top:80px}
 }
+
+/* Bring desktop profiles 10% closer while preserving portrait dimensions. */
+@media(min-width:761px){
+ .people-grid{width:90%;max-width:1044px;column-gap:16.2px}
+ .person{--portrait-width:93.333333%}
+}
+@media(min-width:1101px){.person{--portrait-width:calc(93.333333% - 5.226667px)}}
+@media(min-width:1500px){.people-grid{max-width:1134px}}
