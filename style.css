@@ -381,10 +381,10 @@
  .footer-location{font-size:.75rem;padding-bottom:20px}
 }
 
-/* Match the desktop works area to the narrower people section. */
+/* Match desktop works and studio content to the narrower people section. */
 @media(min-width:761px){
- .poster-grid,.works>.section-line{width:90%;max-width:1044px}
+ .poster-grid,.works>.section-line,.studio-content,.studio>footer{width:90%;max-width:1044px}
 }
 @media(min-width:1500px){
- .poster-grid,.works>.section-line{max-width:1134px}
+ .poster-grid,.works>.section-line,.studio-content,.studio>footer{max-width:1134px}
 }
