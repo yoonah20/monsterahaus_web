@@ -372,11 +372,19 @@
 @media(min-width:1500px){.people-heading{max-width:1134px}}
 
 /* A small location and founding line beside the footer wordmark. */
-.footer-brand{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-bottom:1px solid #f3efe138}
+.footer-brand{display:flex;align-items:baseline;justify-content:flex-start;gap:16px;border-bottom:1px solid #f3efe138}
 .studio .footer-wordmark{font-size:clamp(30px,8vw,112px);border-bottom:0}
-.footer-location{flex-shrink:0;font-size:.875rem;font-weight:400;letter-spacing:.06em;line-height:1.7;color:var(--lime);padding-bottom:28px}
+.footer-location{flex-shrink:0;font-family:var(--body);font-size:.875rem;font-weight:650;letter-spacing:0;line-height:1.7;color:inherit;padding-bottom:28px}
 @media(max-width:760px){
  .footer-brand{gap:12px;flex-wrap:wrap}
  .studio .footer-wordmark{font-size:clamp(30px,10.5vw,59px);padding-bottom:8px}
  .footer-location{font-size:.75rem;padding-bottom:20px}
+}
+
+/* Match the desktop works area to the narrower people section. */
+@media(min-width:761px){
+ .poster-grid,.works>.section-line{width:90%;max-width:1044px}
+}
+@media(min-width:1500px){
+ .poster-grid,.works>.section-line{max-width:1134px}
 }
