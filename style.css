@@ -1,2 +1,325 @@
-:root{--cream:#f3efe1;--green:#203e30;--muted:#617064;--line:#203e3033;--lime:#dbe6a7;--body:'Pretendard',Arial,sans-serif;color:var(--green);background:var(--cream);font-family:var(--body);font-size:16px;font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:110px}body{margin:0}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible{outline:2px solid currentColor;outline-offset:6px}img{display:block;max-width:100%}h1,h2,h3,p{margin:0}ul{list-style:none;margin:0;padding:0}.skip{position:fixed;top:-100px;background:var(--green);color:var(--cream);padding:15px;z-index:10}.skip:focus{top:10px}.masthead{display:flex;align-items:center;gap:38px;padding:12px 3.6%;min-height:96px;border-bottom:1px solid var(--line);background:var(--cream);position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:13px;flex-shrink:0}.brand img{height:62px;width:62px;object-fit:contain;mix-blend-mode:multiply}.brand>span{font-size:27px;letter-spacing:-1.25px;font-weight:700}.brand-sub{display:block;font-size:12px;letter-spacing:.035em;font-weight:400;margin-top:3px}.intro{font-size:13px;line-height:1.6;border-left:1px solid var(--line);padding-left:30px}.masthead nav{margin-left:auto;display:flex;gap:28px;font-size:14px}.masthead nav a{padding:10px 0}.masthead nav a:hover{text-decoration:underline;text-underline-offset:6px}.section{padding:0 3.6%;scroll-margin-top:0}.section-line{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px 0 22px}.section-line h1{font-size:30px;letter-spacing:-1.4px;font-weight:500}.count{font-size:13px;vertical-align:super;letter-spacing:0;margin-left:9px;font-weight:400}.eyebrow{font-size:12px;letter-spacing:.1em;font-weight:500}.poster-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:27px;max-width:1160px;margin:0 auto}.poster{width:100%;aspect-ratio:1000/1416;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:space-between}.poster-image img{width:100%;height:100%;object-fit:contain;transition:filter .35s}.poster-image:hover img{filter:brightness(.9)}.watch{position:absolute;bottom:16px;right:16px;padding:10px 14px;background:var(--cream);font-size:13px;opacity:0;transform:translateY(5px);transition:.2s}.poster-image:hover .watch,.poster-image:focus-visible .watch{opacity:1;transform:none}.watch span{margin-left:14px}.work-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-top:18px}.work-title h2{font-size:22px;font-weight:600;letter-spacing:-.6px}.work-title>span{font-size:13px;white-space:nowrap}.work-title .status{font-size:12px;letter-spacing:.03em}.work-meta{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:13px;line-height:1.4;color:var(--muted)}.season-two{background:#e3dfbb;padding:7.3%;border:1px solid #203e301a}.teaser-top{display:flex;justify-content:space-between;gap:10px;font-size:clamp(10px,.83vw,12px);letter-spacing:.06em;line-height:1.4}.season-center{position:relative;margin:auto 0;width:100%}.season-center>p{font-size:clamp(45px,5.4vw,80px);font-weight:800;line-height:1.05;letter-spacing:-.07em;position:relative;z-index:1}.season-number{display:block;font-family:Georgia,serif;font-weight:400;font-style:italic;font-size:clamp(100px,13vw,185px);line-height:.85;text-align:right;letter-spacing:-.08em;margin-top:-10px;margin-right:14px}.teaser-bottom{display:flex;flex-direction:column;gap:10px}.teaser-bottom strong{font-size:18px;letter-spacing:-.3px;font-weight:500}.teaser-bottom>span{font-size:12px;letter-spacing:.12em}.teaser-bottom small{font-size:12px;opacity:.65}.development{background:var(--green);color:var(--cream);padding:7.3%}.dev-center{margin:auto 0}.dev-asterisk{font-family:Georgia,serif;font-size:85px;line-height:.9;font-weight:400;color:var(--lime);display:block;margin-bottom:20px}.dev-center p{font-size:clamp(40px,4.9vw,70px);font-weight:400;letter-spacing:-.07em;line-height:1.15}.dev-center em{font-family:Georgia,'Pretendard',serif;font-style:italic;font-weight:300}.development .teaser-bottom{border-top:1px solid #f3efe145;padding-top:18px}.section-end{display:flex;justify-content:space-between;font-size:13px;border-bottom:1px solid var(--line);padding:30px 0 28px;margin-top:14px}.section-end>a{display:flex;gap:32px}.people{padding-top:48px;padding-bottom:82px}.people .section-line{padding-top:0}.people-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:26px 0 44px}.people-heading h2{font-size:clamp(38px,5vw,74px);font-weight:500;letter-spacing:-.065em;line-height:1.12}.period{color:#6d853a}.people-heading>p{font-size:16px;line-height:1.65}.people-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:25px}.person>img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;background:#deddd1;filter:grayscale(1);transition:filter .4s}.person:hover>img{filter:grayscale(0)}.person-name{display:flex;align-items:baseline;justify-content:space-between;margin-top:20px}.person-name h3{font-size:25px;font-weight:600;letter-spacing:-.8px}.person-name>span{font-size:12px}.role{font-size:12px;letter-spacing:.04em;line-height:1.5;min-height:44px;margin-top:8px}.credits{border-top:1px solid var(--line);margin-top:18px;padding-top:17px}.credits li{margin-bottom:15px;font-size:14px;line-height:1.45;word-break:keep-all}.credits small{display:block;color:var(--muted);font-size:12px;margin-top:4px}.credit-note{font-size:12px;color:var(--muted);margin-top:35px;line-height:1.6}.studio{background:var(--green);color:var(--cream);padding-top:22px}.studio .section-line{border-bottom:1px solid #f3efe138;padding-bottom:25px}.studio-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:12%;padding:68px 0 88px}.studio h2{font-size:clamp(38px,4.1vw,60px);font-weight:400;line-height:1.2;letter-spacing:-.06em;margin-bottom:34px}.studio h2 em{font-style:normal;color:var(--lime)}.studio-copy{max-width:510px;font-size:16px;line-height:1.9;color:#dfdfce;word-break:keep-all;margin-top:18px}.contact{padding-top:8px}.contact-copy{font-size:14px;line-height:1.6;margin-top:22px;color:#dfdfce}.email{display:block;font-size:clamp(26px,3.1vw,45px);line-height:1.15;letter-spacing:-.04em;margin-top:24px;overflow-wrap:anywhere}.email span{font-size:.8em;color:var(--lime)}.email:hover{color:var(--lime)}.contact-links{display:flex;gap:35px;margin-top:38px;font-size:14px}.contact-links a{border-bottom:1px solid #f3efe16b;padding-bottom:7px}.contact address{font-size:14px;font-style:normal;margin-top:28px;line-height:1.6;color:#dfdfce}.footer-wordmark{font-size:clamp(54px,12.25vw,210px);font-weight:650;letter-spacing:-.075em;line-height:1.12;border-bottom:1px solid #f3efe138;padding-bottom:23px;white-space:nowrap}.footer-wordmark span{font-size:.15em;vertical-align:top;display:inline-block;margin-top:1em;letter-spacing:0;margin-left:.6em}.legal{display:flex;align-items:start;justify-content:space-between;gap:20px;padding:25px 0 28px;font-size:12px;color:#dfdfce;line-height:1.7}.legal p span{margin-left:15px}.legal a{white-space:nowrap}.legal>p:nth-child(2){white-space:nowrap}
+:root{--cream:#f3efe1;--green:#203e30;--muted:#617064;--line:#203e3033;--lime:#dbe6a7;--body:'Pretendard',Arial,sans-serif;color:var(--green);background:var(--cream);font-family:var(--body);font-size:16px;font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:110px}body{margin:0}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible{outline:2px solid currentColor;outline-offset:6px}img{display:block;max-width:100%}h1,h2,h3,p{margin:0}ul{list-style:none;margin:0;padding:0}.skip{position:fixed;top:-100px;background:var(--green);color:var(--cream);padding:15px;z-index:10}.skip:focus{top:10px}.masthead{display:flex;align-items:center;gap:38px;padding:12px 3.6%;min-height:96px;border-bottom:1px solid var(--line);background:var(--cream);position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:13px;flex-shrink:0}.brand img{height:62px;width:62px;object-fit:contain;mix-blend-mode:multiply}.brand>span{font-size:27px;letter-spacing:-1.25px;font-weight:700}.brand-sub{display:block;font-size:12px;letter-spacing:.035em;font-weight:400;margin-top:3px}.intro{font-size:13px;line-height:1.6;border-left:1px solid var(--line);padding-left:30px}.masthead nav{margin-left:auto;display:flex;gap:28px;font-size:14px}.masthead nav a{padding:10px 0}.masthead nav a:hover{text-decoration:underline;text-underline-offset:6px}.section{padding:0 3.6%;scroll-margin-top:0}.section-line{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px 0 22px}.section-line h1{font-size:30px;letter-spacing:-1.4px;font-weight:500}.count{font-size:13px;vertical-align:super;letter-spacing:0;margin-left:9px;font-weight:400}.eyebrow{font-size:12px;letter-spacing:.1em;font-weight:500}.poster-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:27px;max-width:1160px;margin:0 auto}.poster{width:100%;aspect-ratio:1000/1416;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:space-between}.poster-image img{width:100%;height:100%;object-fit:contain;transition:filter .35s}.poster-image:hover img{filter:brightness(.9)}.watch{position:absolute;bottom:16px;right:16px;padding:10px 14px;background:var(--cream);font-size:13px;opacity:0;transform:translateY(5px);transition:.2s}.poster-image:hover .watch,.poster-image:focus-visible .watch{opacity:1;transform:none}.watch span{margin-left:14px}.work-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-top:18px}.work-title h2{font-size:22px;font-weight:600;letter-spacing:-.6px}.work-title>span{font-size:13px;white-space:nowrap}.work-title .status{font-size:12px;letter-spacing:.03em}.work-meta{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:13px;line-height:1.4;color:var(--muted)}.season-two{background:#e3dfbb;padding:7.3%;border:1px solid #203e301a}.teaser-top{display:flex;justify-content:space-between;gap:10px;font-size:clamp(10px,.83vw,12px);letter-spacing:.06em;line-height:1.4}.season-center{position:relative;margin:auto 0;width:100%}.season-center>p{font-size:clamp(45px,5.4vw,80px);font-weight:800;line-height:1.05;letter-spacing:-.07em;position:relative;z-index:1}.season-number{display:block;font-family:Georgia,serif;font-weight:400;font-style:italic;font-size:clamp(100px,13vw,185px);line-height:.85;text-align:right;letter-spacing:-.08em;margin-top:-10px;margin-right:14px}.teaser-bottom{display:flex;flex-direction:column;gap:10px}.teaser-bottom strong{font-size:18px;letter-spacing:-.3px;font-weight:500}.teaser-bottom>span{font-size:12px;letter-spacing:.12em}.teaser-bottom small{font-size:12px;opacity:.65}.development{background:var(--green);color:var(--cream);padding:7.3%}.dev-center{margin:auto 0}.dev-asterisk{font-family:Georgia,serif;font-size:85px;line-height:.9;font-weight:400;color:var(--lime);display:block;margin-bottom:20px}.dev-center p{font-size:clamp(40px,4.9vw,70px);font-weight:400;letter-spacing:-.07em;line-height:1.15}.dev-center em{font-family:Georgia,'Pretendard',serif;font-style:italic;font-weight:300}.development .teaser-bottom{border-top:1px solid #f3efe145;padding-top:18px}.section-end{display:flex;justify-content:space-between;font-size:13px;border-bottom:1px solid var(--line);padding:30px 0 28px;margin-top:14px}.section-end>a{display:flex;gap:32px}.people{padding-top:48px;padding-bottom:82px}.people .section-line{padding-top:0}.people-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:26px 0 44px}.people-heading h2{font-size:clamp(38px,5vw,74px);font-weight:500;letter-spacing:-.065em;line-height:1.12}.period{color:#6d853a}.people-heading>p{font-size:16px;line-height:1.65}.people-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:25px}.person>img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;background:#deddd1;filter:none;}.person-name{display:flex;align-items:baseline;justify-content:space-between;margin-top:20px}.person-name h3{font-size:25px;font-weight:600;letter-spacing:-.8px}.person-name>span{font-size:12px}.role{font-size:12px;letter-spacing:.04em;line-height:1.5;min-height:44px;margin-top:8px}.credits{border-top:1px solid var(--line);margin-top:18px;padding-top:17px}.credits li{margin-bottom:15px;font-size:14px;line-height:1.45;word-break:keep-all}.credits small{display:block;color:var(--muted);font-size:12px;margin-top:4px}.credit-note{font-size:12px;color:var(--muted);margin-top:35px;line-height:1.6}.studio{background:var(--green);color:var(--cream);padding-top:22px}.studio .section-line{border-bottom:1px solid #f3efe138;padding-bottom:25px}.studio-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:12%;padding:68px 0 88px}.studio h2{font-size:clamp(38px,4.1vw,60px);font-weight:400;line-height:1.2;letter-spacing:-.06em;margin-bottom:34px}.studio h2 em{font-style:normal;color:var(--lime)}.studio-copy{max-width:510px;font-size:16px;line-height:1.9;color:#dfdfce;word-break:keep-all;margin-top:18px}.contact{padding-top:8px}.contact-copy{font-size:14px;line-height:1.6;margin-top:22px;color:#dfdfce}.email{display:block;font-size:clamp(26px,3.1vw,45px);line-height:1.15;letter-spacing:-.04em;margin-top:24px;overflow-wrap:anywhere}.email span{font-size:.8em;color:var(--lime)}.email:hover{color:var(--lime)}.contact-links{display:flex;gap:35px;margin-top:38px;font-size:14px}.contact-links a{border-bottom:1px solid #f3efe16b;padding-bottom:7px}.contact address{font-size:14px;font-style:normal;margin-top:28px;line-height:1.6;color:#dfdfce}.footer-wordmark{font-size:clamp(54px,12.25vw,210px);font-weight:650;letter-spacing:-.075em;line-height:1.12;border-bottom:1px solid #f3efe138;padding-bottom:23px;white-space:nowrap}.footer-wordmark span{font-size:.15em;vertical-align:top;display:inline-block;margin-top:1em;letter-spacing:0;margin-left:.6em}.legal{display:flex;align-items:start;justify-content:space-between;gap:20px;padding:25px 0 28px;font-size:12px;color:#dfdfce;line-height:1.7}.legal p span{margin-left:15px}.legal a{white-space:nowrap}.legal>p:nth-child(2){white-space:nowrap}
 @media(min-width:1500px){.poster-grid{max-width:1260px}}@media(max-width:1100px){.intro{display:none}.people-grid{gap:18px}.work-title h2{font-size:19px}.work-title .status{font-size:12px}.work-meta{flex-direction:column;gap:4px}.legal p span{display:block;margin:0}.studio-grid{gap:8%}}@media(max-width:760px){html{scroll-padding-top:115px}.masthead{padding:10px 5%;flex-wrap:wrap;gap:4px;position:sticky}.brand img{width:45px;height:45px}.brand>span{font-size:24px}.brand-sub{font-size:12px}.masthead nav{width:100%;margin:0;justify-content:space-between;gap:18px}.masthead nav a{padding:8px 0;font-size:13px}.section{padding-left:5%;padding-right:5%}.section-line{padding-top:24px;gap:10px}.section-line h1{font-size:28px}.section-line>.eyebrow:last-child{font-size:10px;letter-spacing:.04em}.poster-grid{grid-template-columns:1fr;gap:34px;max-width:460px}.poster{aspect-ratio:1000/1416}.teaser-top{font-size:12px}.season-center>p{font-size:clamp(64px,17vw,95px)}.season-number{font-size:clamp(150px,39vw,220px)}.dev-center p{font-size:clamp(56px,15vw,90px)}.dev-asterisk{font-size:110px}.work-title h2{font-size:23px}.work-title .status{font-size:12px}.work-meta{flex-direction:row;font-size:12px}.watch{opacity:1;transform:none}.section-end{margin-top:30px;font-size:12px;gap:20px}.section-end>a{gap:10px}.people{padding-top:45px;padding-bottom:48px}.people-heading{display:block;margin:24px 0 32px}.people-heading>p{margin-top:20px;font-size:15px}.people-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px}.person-name h3{font-size:23px}.credits li{font-size:14px}.studio-grid{grid-template-columns:1fr;gap:52px;padding:42px 0 60px}.studio h2{font-size:43px}.email{font-size:38px}.footer-wordmark{font-size:12vw}.legal{flex-wrap:wrap;gap:20px;font-size:12px}.legal>p:first-child{width:100%}.legal>a{margin-left:auto}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+
+/* Match the people profiles to the Works grid width. */
+.people-grid{max-width:1160px;margin-inline:auto}
+.section-end{padding:0;margin-top:44px}
+@media(min-width:1500px){.people-grid{max-width:1260px}}
+@media(max-width:760px){.people-grid{max-width:460px}}
+
+/* Crop the embedded wordmark from the header logo. */
+.brand .brand-symbol{display:block;flex:none;width:62px;height:50px;overflow:hidden}
+.brand-symbol img{max-width:none}
+@media(max-width:760px){.brand .brand-symbol{width:45px;height:36px}}
+
+/* Face-focused square framing, preserving the supplied original. */
+.portrait{position:relative;width:100%;aspect-ratio:1;overflow:hidden;background:#deddd1}
+.portrait img{position:absolute;display:block;max-width:none;filter:none;}
+.portrait-jk img{width:150.0000%;height:225.0000%;left:-40.0000%;top:-15.0000%;}
+
+@media(prefers-reduced-motion:reduce){.portrait img{transition:none}}
+
+/* Individual face framing for supplied portraits. */
+.portrait-js img{width:122.0000%;height:183.0000%;left:-10.0000%;top:-10.0000%;}
+.portrait-sj img{width:352.9412%;height:235.2941%;left:-126.4706%;top:-26.1765%;}
+.portrait-sd img{width:160.0000%;height:241.4286%;left:-24.5714%;top:0.0000%;}
+.portrait-jy img{width:233.3333%;height:166%;left:-63.3333%;top:-8%;}
+
+/* Compact studio: the original two-column silhouette. */
+.studio-content,.studio>.section-line,.studio>footer{max-width:1160px;margin-inline:auto}
+.studio-overview{display:grid;grid-template-columns:1.15fr 1fr;gap:10%;padding:52px 0 56px}
+.studio-story,.studio-connect{min-width:0}
+.studio-story h2{font-size:clamp(38px,3.8vw,56px);margin-bottom:24px}
+.studio-connect{padding-top:8px}
+.studio-connect>p{font-size:14px;line-height:1.6;margin-top:22px;color:#dfdfce}
+.studio-social{display:flex;flex-wrap:wrap;gap:16px 26px;margin-top:22px}
+.studio-social a{font-size:14px;line-height:1.6;white-space:nowrap;border-bottom:1px solid #f3efe16b;padding-bottom:5px}
+.studio-connect address{font-style:normal;font-size:14px;line-height:1.7;color:#dfdfce;margin-top:32px;word-break:keep-all}
+.studio-directions{display:flex;gap:22px;margin-top:12px;font-size:13px;line-height:1.6}
+.studio-directions a{text-decoration:underline;text-underline-offset:4px}
+.studio-connect a:hover{color:var(--lime)}
+.studio .footer-wordmark{font-size:clamp(54px,10.8vw,155px);padding:10px 0 28px}
+@media(min-width:1500px){.studio-content,.studio>.section-line,.studio>footer{max-width:1260px}}
+
+/* Mobile: compact navigation, swipeable works, readable two-column profiles. */
+@media(max-width:760px){
+ html{scroll-padding-top:120px}
+ .section{padding-inline:20px}
+ .masthead{padding:10px 20px 0;gap:6px;min-height:0}
+ .brand{gap:10px}.brand>span{font-size:23px}.brand-sub{font-size:12px}
+ .masthead nav{gap:12px}.masthead nav a{font-size:14px;min-height:44px;display:flex;align-items:center;padding:8px 0}
+ .section-line{padding:24px 0 18px;flex-wrap:wrap}
+ .section-line>.eyebrow:last-child{font-size:12px}
+ .section-line h1{font-size:28px}
+ .poster-grid{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(82%,360px);gap:16px;max-width:none;width:calc(100% + 40px);margin-inline:-20px;padding:0 20px 14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:20px;scrollbar-width:thin;scrollbar-color:var(--muted) transparent}
+ .work{min-width:0;scroll-snap-align:start;container-type:inline-size}
+ .poster{aspect-ratio:1000/1416}
+ .teaser-top{font-size:12px;letter-spacing:0;gap:8px}
+ .season-center>p{font-size:clamp(44px,19cqw,68px)}
+ .season-number{font-size:clamp(110px,43cqw,155px)}
+ .dev-center p{font-size:clamp(42px,18cqw,64px)}
+ .dev-asterisk{font-size:70px;margin-bottom:14px}
+ .teaser-bottom{gap:8px}.teaser-bottom strong{font-size:16px}
+ .work-title{padding-top:14px;flex-wrap:wrap;gap:6px 12px}.work-title h2{font-size:21px}
+ .work-meta{flex-wrap:wrap;gap:4px 12px;font-size:12px;margin-top:6px}
+ .watch{min-height:44px;display:flex;align-items:center;bottom:12px;right:12px}
+ .section-end{margin-top:24px}
+ .people{padding-top:32px;padding-bottom:40px}
+ .people-heading{margin:12px 0 26px}.people-heading h2{font-size:clamp(32px,8.5vw,44px)}
+ .people-grid{max-width:460px;gap:30px 16px;align-items:start}
+ .person{min-width:0}.person-name{margin-top:14px}.person-name h3{font-size:22px}
+ .role{font-size:12px;letter-spacing:0;line-height:1.5;min-height:40px;margin-top:6px;overflow-wrap:anywhere}
+ .credits{margin-top:12px;padding-top:14px}.credits li{font-size:14px;line-height:1.5;margin-bottom:13px;overflow-wrap:anywhere}.credits small{line-height:1.5}
+ .studio{padding-top:8px}
+ .studio-content,.studio>.section-line,.studio>footer{max-width:460px}
+ .studio .section-line{padding-bottom:20px;gap:10px}
+ .studio-overview{grid-template-columns:1fr;gap:30px;padding:30px 0 34px}
+ .studio-story h2{font-size:clamp(34px,9vw,43px);margin-bottom:22px}
+ .studio-copy{font-size:16px;line-height:1.8;margin-top:16px}
+ .studio-connect{padding-top:26px;border-top:1px solid #f3efe138}
+ .studio-connect>p{margin-top:16px}.studio-social{margin-top:12px;gap:6px 22px}
+ .studio-social a{display:flex;align-items:center;min-height:44px;padding:6px 0;font-size:14px}
+ .studio-connect address{margin-top:22px}.studio-directions{margin-top:8px;gap:24px;font-size:14px}
+ .studio-directions a{min-height:44px;display:flex;align-items:center}
+ .studio .footer-wordmark{font-size:clamp(30px,10.5vw,59px);padding:8px 0 22px}
+ .legal{padding:20px 0 24px;gap:12px}.legal p{line-height:1.9}.legal>a{min-height:44px;display:flex;align-items:center;margin-left:0}
+}
+@media(max-width:360px){.section{padding-inline:16px}.masthead{padding-inline:16px}.poster-grid{width:calc(100% + 32px);margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px}.people-grid{gap:28px 12px}.person-name h3{font-size:20px}}
+
+.studio-connect>p:first-child{margin-top:0}
+.studio-location-map{display:block;width:100%;height:200px;margin-top:24px;border:0;background:var(--cream)}
+@media(max-width:760px){.studio-location-map{height:210px;margin-top:18px}}
+
+/* Let the descriptor sit beside the wordmark when space permits. */
+@media(min-width:761px){
+ .brand>span:not(.brand-symbol){display:flex;align-items:baseline;gap:18px}
+ .brand-sub{display:inline-block;margin-top:0;font-size:14px;letter-spacing:0;font-weight:400}
+}
+@media(min-width:761px) and (max-width:1000px){
+ .masthead{gap:20px}.masthead nav{gap:18px}
+ .brand>span:not(.brand-symbol){gap:12px}
+ .brand-sub{font-size:12px}
+}
+
+/* Compact masthead with a single shared vertical alignment. */
+@media(min-width:761px){
+ .masthead{min-height:72px;padding:12px 3.6%;gap:24px}
+ .brand{gap:12px}
+ .brand .brand-symbol{width:48px;height:39px}
+ .brand-symbol img{width:48px;height:48px}
+ .brand>span:not(.brand-symbol){align-items:center;gap:18px;font-size:25px;line-height:1.2;letter-spacing:-1px}
+ .brand-sub{font-size:13px;line-height:1.4;letter-spacing:0;padding-left:18px;border-left:1px solid var(--line)}
+ .masthead nav{align-items:center;gap:28px}
+ .masthead nav a{display:flex;align-items:center;min-height:44px;padding:8px 0}
+ html{scroll-padding-top:88px}
+}
+@media(min-width:761px) and (max-width:1000px){
+ .masthead{gap:16px}.brand>span:not(.brand-symbol){gap:12px;font-size:23px}
+ .brand-sub{font-size:12px;padding-left:12px}.masthead nav{gap:18px;font-size:13px}
+}
+@media(max-width:760px){
+ .masthead{padding-top:8px;gap:2px}
+ .brand .brand-symbol{width:38px;height:31px}
+ .brand-symbol img{width:38px;height:38px}
+ .brand>span:not(.brand-symbol){font-size:22px;line-height:1.15}
+ .brand-sub{font-size:12px;line-height:1.3;margin-top:3px}
+ html{scroll-padding-top:108px}
+}
+
+@media(min-width:761px){
+ .brand>span:not(.brand-symbol){align-items:baseline}
+ .brand-sub{border-left:0;padding-left:0}
+}
+
+/* Contact hierarchy: invitation, direct links, then office details. */
+.studio-connect .connect-heading{position:relative;font-size:clamp(26px,2.5vw,36px);font-weight:400;line-height:1.35;letter-spacing:-.055em;padding-right:42px;margin:0}
+.connect-heading>span{position:absolute;right:0;top:0;font-size:38px;font-weight:300;color:var(--lime)}
+.studio-connect .studio-social{margin-top:26px;gap:12px 24px}
+.studio-connect .studio-social a{font-size:16px;line-height:1.6;padding-bottom:7px;border-bottom-color:#f3efe14d}
+.studio-connect address{border-top:1px solid #f3efe138;padding-top:24px;margin-top:32px;font-size:14px;line-height:1.7;color:#c1cbb9}
+.studio-connect .studio-directions{font-size:13px;margin-top:10px;gap:24px;color:#c1cbb9}
+@media(max-width:760px){
+ .studio-connect .connect-heading{font-size:28px}
+ .studio-connect .studio-social{margin-top:18px}
+ .studio-connect .studio-social a{font-size:14px;min-height:44px}
+ .studio-connect address{margin-top:24px;padding-top:20px}
+ .studio-connect .studio-directions{font-size:14px}
+}
+
+/* Shared column width and heading rhythm unify studio and contact. */
+.studio-overview{grid-template-columns:repeat(2,minmax(0,1fr));gap:64px;padding:48px 0}
+.studio-connect{padding-top:0}
+.studio-story h2,.studio-connect .connect-heading{font-size:clamp(32px,3.35vw,48px);font-weight:400;line-height:1.25;letter-spacing:-.055em;margin:0 0 28px;padding:0}
+.studio-story .studio-copy:first-of-type{margin-top:0}
+.studio-copy{max-width:none;line-height:1.85}
+.studio-connect .studio-social{margin-top:0;gap:12px 24px;min-height:44px;align-items:flex-start}
+.studio-connect address{margin-top:24px;padding-top:22px;font-size:15px}
+.studio-connect .studio-directions{margin-top:12px;font-size:14px}
+@media(max-width:760px){
+ .studio-overview{grid-template-columns:1fr;gap:28px;padding:30px 0 34px}
+ .studio-story h2,.studio-connect .connect-heading{font-size:clamp(30px,8.5vw,40px);margin-bottom:22px}
+ .studio-connect{padding-top:26px}
+ .studio-connect .studio-social{gap:8px 22px}
+ .studio-connect address{margin-top:20px;padding-top:20px}
+}
+
+/* Contact links use spacing and hover color instead of rules. */
+.studio-connect .studio-social a{border-bottom:0}
+.studio-connect address{border-top:0}
+.studio-connect .studio-directions a{text-decoration:none}
+@media(max-width:760px){.studio-connect{border-top:0}}
+
+/* A compact two-line wordmark paired with a larger leaf symbol. */
+.brand>span:not(.brand-symbol){display:block;font-size:25px;line-height:1.1;letter-spacing:-1px}
+.brand-sub{display:block;font-size:12px;font-weight:400;line-height:1.35;letter-spacing:.025em;margin-top:5px;padding-left:0;border:0}
+.brand{gap:13px;align-items:center}
+.brand .brand-symbol{width:58px;height:47px}
+.brand-symbol img{width:58px;height:58px}
+@media(max-width:760px){
+ .brand>span:not(.brand-symbol){font-size:22px}
+ .brand-sub{font-size:12px;margin-top:4px}
+ .brand .brand-symbol{width:46px;height:37px}
+ .brand-symbol img{width:46px;height:46px}
+ .brand{gap:10px}
+}
+
+/* Tighten the two-line brand lockup. */
+.brand-sub{margin-top:2px}
+
+/* Keep the studio contact compact; the office address lives in the footer. */
+.studio-connect .studio-directions{margin-top:24px;gap:24px}
+.studio-overview{padding-bottom:40px}
+.studio .legal{align-items:baseline;gap:20px}
+.studio .legal>p{display:flex;flex-wrap:wrap;gap:4px 18px;min-width:0}
+.studio .legal p span{margin-left:0}
+.studio .legal .footer-address{word-break:keep-all}
+@media(max-width:760px){
+ .studio-overview{padding-bottom:28px}
+ .studio-connect .studio-directions{margin-top:14px}
+ .studio .legal>p{display:flex;flex-direction:column;gap:4px}
+ .studio .legal{align-items:flex-start}
+}
+
+/* Simplified studio contact: heading and two direct links only. */
+.studio-overview{align-items:start;padding-bottom:32px}
+.studio-connect .studio-social{margin-top:0;gap:14px 24px;min-height:0}
+@media(max-width:760px){
+ .studio-overview{gap:26px;padding-bottom:24px}
+ .studio-connect{padding-top:18px}
+ .studio-connect .studio-social{gap:8px 22px}
+}
+
+/* One heading is enough for the people section. */
+.people{padding-top:36px;padding-bottom:48px}
+.people-heading{margin:0 0 30px}
+@media(max-width:760px){
+ .people{padding-top:28px;padding-bottom:36px}
+ .people-heading{margin:0 0 24px}
+}
+
+/* Shared type scale across works, people, and studio. */
+:root{--section-title:1.875rem;--item-title:1.375rem;--studio-title:2.25rem}
+.section-line h1,.people-heading h2{font-size:var(--section-title);font-weight:500;line-height:1.25;letter-spacing:-.04em}
+.work-title h2,.person-name h3{font-size:var(--item-title);font-weight:600;line-height:1.35;letter-spacing:-.035em}
+.studio-story h2,.studio-connect .connect-heading{font-size:var(--studio-title);line-height:1.3;letter-spacing:-.045em}
+.studio-copy{font-size:1rem}
+.credits li{font-size:.875rem}
+.role,.credits small,.work-title .status{font-size:.75rem}
+.work-meta{font-size:.8125rem}
+@media(max-width:760px){
+ :root{--section-title:1.75rem;--item-title:1.25rem;--studio-title:1.875rem}
+ .work-meta{font-size:.75rem}
+}
+
+/* Restore the expressive people heading. */
+.people-heading h2{font-size:clamp(38px,5vw,74px);font-weight:500;letter-spacing:-.065em;line-height:1.12}
+@media(max-width:760px){.people-heading h2{font-size:clamp(32px,8.5vw,44px)}}
+
+.people-heading h2{font-size:clamp(34px,4.5vw,66px)}
+@media(max-width:760px){.people-heading h2{font-size:clamp(30px,7.7vw,40px)}}
+
+/* The two studio headlines introduce the section directly. */
+.studio{padding-top:0}
+.studio-overview{padding-top:52px}
+.studio-story h2,.studio-connect .connect-heading{font-size:clamp(36px,3.3vw,46px);font-weight:500;line-height:1.25;letter-spacing:-.045em;margin-bottom:28px}
+@media(max-width:760px){
+ .studio-overview{padding-top:34px}
+ .studio-story h2,.studio-connect .connect-heading{font-size:clamp(30px,8vw,38px);margin-bottom:22px}
+}
+
+.studio-connect .studio-social{flex-direction:column;align-items:flex-start}
+
+.studio-connect .connect-heading{color:var(--cream)}
+.studio-connect .connect-heading em{color:var(--lime);font-style:normal}
+
+/* Give the studio breathing room without another heading. */
+.studio-overview{padding-top:76px;padding-bottom:64px}
+.studio .footer-wordmark{padding-top:24px;padding-bottom:36px}
+@media(max-width:760px){
+ .studio-overview{padding-top:48px;padding-bottom:40px;gap:36px}
+ .studio .footer-wordmark{padding-top:16px;padding-bottom:28px}
+}
+
+/* Final spacing rhythm: generous section openings, compact detail lists. */
+.works>.section-line{padding-top:36px;padding-bottom:28px}
+.work-title{padding-top:20px}
+.work-meta{margin-top:8px}
+.works>.section-end{margin-top:48px}
+.people{padding-top:44px;padding-bottom:56px}
+.people-heading{margin-top:0;margin-bottom:36px}
+.person-name{margin-top:22px}
+.role{margin-top:8px}
+.credits{margin-top:20px;padding-top:18px}
+@media(max-width:760px){
+ .works>.section-line{padding-top:28px;padding-bottom:24px}
+ .work-title{padding-top:16px}
+ .work-meta{margin-top:8px}
+ .works>.section-end{margin-top:32px}
+ .people{padding-top:36px;padding-bottom:44px}
+ .people-heading{margin-bottom:28px}
+ .people-grid{row-gap:36px}
+ .person-name{margin-top:16px}
+ .role{margin-top:8px}
+ .credits{margin-top:14px;padding-top:16px}
+}
+
+/* Keep portraits quieter than the work posters. */
+.person .portrait{width:84%;max-width:190px}
+@media(max-width:760px){.person .portrait{width:88%;max-width:160px}}
+
+/* Keep the role label with the name instead of the far card edge. */
+.person-name{justify-content:flex-start;align-items:baseline;gap:10px;flex-wrap:wrap}
+.person-name>span{flex:none}
+
+/* Slightly tighten horizontal spacing while preserving portrait sizes. */
+.people-grid{column-gap:18px}
+@media(min-width:1101px){.person .portrait{width:calc(84% - 4.704px)}}
+@media(max-width:760px){.people-grid{column-gap:12px}.person .portrait{width:calc(88% - 1.76px)}}
+@media(max-width:360px){.person .portrait{width:88%}}
+
+/* Match the credits divider to the portrait, keeping text width intact. */
+.person{--portrait-width:84%;--portrait-max:190px}
+.person .portrait{width:var(--portrait-width);max-width:var(--portrait-max)}
+.person .credits{border-top:0;position:relative}
+.person .credits::before{content:"";position:absolute;top:0;left:0;width:var(--portrait-width);max-width:var(--portrait-max);height:1px;background:var(--line)}
+@media(min-width:1101px){.person{--portrait-width:calc(84% - 4.704px)}}
+@media(max-width:760px){.person{--portrait-width:calc(88% - 1.76px);--portrait-max:160px}}
+@media(max-width:360px){.person{--portrait-width:88%}}
+
+/* Center both section headings and the visible profile groups. */
+.works>.section-line,.people-heading{justify-content:center;text-align:center}
+.people-heading h2{width:100%}
+.person .portrait{margin-inline:auto}
+.person .person-name,.person .role,.person .credits{width:min(var(--portrait-width),var(--portrait-max));margin-inline:auto}
+.person .credits::before{width:100%;max-width:none}
+.person .role,.person .credits{overflow-wrap:anywhere}
+@media(max-width:760px){.people-heading{text-align:center}}
+
+/* Keep headings left-aligned; retain centered profile groups. */
+.works>.section-line,.people-heading{justify-content:flex-start;text-align:left}
+.people-heading h2{width:auto}
+
+/* Bring section headings inward to the centered content area. */
+.works>.section-line,.people-heading{max-width:1160px;margin-inline:auto}
+@media(min-width:1500px){.works>.section-line,.people-heading{max-width:1260px}}
+@media(max-width:760px){.works>.section-line{max-width:none}.people-heading{max-width:460px}}
