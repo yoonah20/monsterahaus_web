@@ -388,3 +388,26 @@
 @media(min-width:1500px){
  .poster-grid,.works>.section-line,.studio-content,.studio>footer{max-width:1134px}
 }
+
+/* Language navigation stays available even when mobile section links are hidden. */
+.language-switch{display:flex;align-items:center;gap:2px;flex-shrink:0;border-left:1px solid var(--line);padding-left:16px}
+.language-switch a{display:flex;align-items:center;justify-content:center;min-width:36px;min-height:44px;font-size:12px;letter-spacing:.03em;color:var(--muted)}
+.language-switch a[aria-current="page"]{color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:6px}
+.language-switch a:hover{color:var(--green)}
+html:lang(en) .season-center>p,html:lang(ja) .season-center>p{font-size:clamp(28px,3.4vw,52px);letter-spacing:-.045em}
+html:lang(en) .dev-center p{font-size:clamp(28px,3.3vw,50px);letter-spacing:-.045em}
+html:lang(en) .work-title,html:lang(ja) .work-title{flex-wrap:wrap}
+html:lang(en) .person-name h3,html:lang(ja) .person-name h3{font-size:1.125rem;letter-spacing:-.02em}
+html:lang(en) .studio-copy{word-break:normal}
+html:lang(ja){--body:'Pretendard','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif}
+html:lang(ja) .studio-copy,html:lang(ja) .credits li{word-break:normal;overflow-wrap:anywhere}
+html:lang(ja) .studio-story h2,html:lang(ja) .connect-heading{font-size:clamp(28px,2.7vw,38px);letter-spacing:-.035em}
+@media(min-width:761px) and (max-width:1000px){.language-switch{padding-left:8px}.masthead{gap:12px}.masthead nav{gap:14px}}
+@media(max-width:760px){
+ .language-switch{margin-left:auto;border:0;padding-left:0;gap:0}
+ .language-switch a{min-width:32px}
+ html:lang(en) .season-center>p,html:lang(ja) .season-center>p{font-size:clamp(32px,13cqw,48px)}
+ html:lang(en) .dev-center p{font-size:clamp(32px,13cqw,48px)}
+ html:lang(ja) .studio-story h2,html:lang(ja) .connect-heading{font-size:clamp(26px,7vw,34px)}
+}
+@media(max-width:380px){.masthead{gap:4px}.masthead .brand{gap:6px}.masthead .brand>span:not(.brand-symbol){font-size:18px}.masthead .brand-sub{font-size:10px}.masthead .brand .brand-symbol{width:34px;height:30px}.masthead .brand-symbol img{width:34px;height:34px}.language-switch a{min-width:30px}}

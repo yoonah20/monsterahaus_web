@@ -1,0 +1,48 @@
+# Monsterahaus website
+
+한국어 원본을 유지하는 정적 다국어 사이트입니다. JavaScript나 번역 API 없이 언어별 페이지가 열립니다.
+
+- `/`: 한국어 (`index.html`)
+- `/en/`: 영어
+- `/ja/`: 일본어
+
+## 필수 다국어 유지보수 규칙
+
+앞으로 콘텐츠나 기능을 수정할 때는 **한국어·영어·일본어판을 같은 작업에서 함께 수정하고 배포해야 합니다.** 한국어판만 수정한 상태는 완료로 간주하지 않습니다.
+
+- 작품 추가/변경, 제작진 및 이력, 회사 소개, 연락처, 일정, 이미지 설명과 접근성 문구를 세 언어에 함께 반영합니다.
+- `index.html` 변경 시 `locales/en.json`과 `locales/ja.json`의 번역을 갱신하고 `python3 build.py`로 영어·일본어 HTML을 재생성합니다.
+- 공통 디자인/기능 변경도 세 언어의 데스크톱·모바일 레이아웃과 언어 전환을 확인합니다.
+- 원본, 번역 파일, 생성된 `en/index.html`·`ja/index.html`을 같은 커밋과 배포에 포함합니다.
+- 사용자 확정 표기 `Monsterahaus`, `Park Jinkyung`, `Lee Jaeseok`을 유지하며 일본어판의 제작진 이름도 영문으로 표기합니다.
+
+## 수정 및 빌드
+
+한국어 콘텐츠와 공통 구조는 `index.html`, 번역은 `locales/en.json`과 `locales/ja.json`, 디자인은 `style.css`에서 수정합니다. 번역 키는 한국어 원문과 일치해야 합니다. 원문 변경 시 두 번역 파일의 키도 함께 수정하세요. HTML이 포함된 번역값은 신뢰하는 편집자만 수정해야 합니다.
+
+```sh
+python3 build.py
+python3 -m http.server 8765 --bind 127.0.0.1 --directory dist
+```
+
+빌드가 `en/index.html`, `ja/index.html`을 재생성하고 기존 호스팅 설정에 맞게 `dist/`를 만듭니다. 생성된 언어 페이지를 직접 수정하지 마세요. 빌드는 미번역 한국어 원문, 번역 키 불일치, 파일/섹션/언어 링크, 현재 언어 표시, 페이지 구조를 검사합니다. 하위 경로에 올려도 상대 경로로 자산과 언어 페이지가 연결됩니다.
+
+## 표기 및 번역 검토
+
+- 사용자 확정: Monsterahaus, Park Jinkyung, Lee Jaeseok.
+- 나머지 이름은 임시 표기: Son Sujeong, Moon Sangdon, Cho Juyeon. 일본어판에도 같은 영문 이름을 사용합니다.
+- 기존 소문자 로고/워드마크는 유지합니다. 본문 회사명은 Monsterahaus입니다.
+- 원본 포스터 이미지는 유지하며 이미지 설명은 번역합니다.
+- 작품 제목은 번역 초안입니다. 공식 해외 유통명을 일괄 확인한 상태는 아니며, 확인이 필요한 일부 제목은 한국어 원제를 병기했습니다. 공개 전 파트너용 표기 검토가 필요합니다.
+- 일본어 `ゾンビバース` 표기는 Netflix 공식 페이지 참고: https://www.netflix.com/jp/title/81635888
+- 시즌 2 일정과 작품 연도는 기존 한국어 원본을 그대로 옮겼으며 별도 사실 검증/변경하지 않았습니다.
+
+## 운영 배포
+
+현재 운영 배포는 GitHub `yoonah20/monsterahaus_web`의 `main` 변경을 Cloudflare Pages `monsterahaus-web` 프로젝트가 자동 반영하는 방식입니다. `.openai/hosting.json`은 기존 Sites 설정으로 남아 있으며 현재 운영 배포 경로로 사용하지 않습니다.
+
+배포 전 `python3 build.py`와 `git diff --check`를 통과시키고, 반영 후 해당 커밋의 Cloudflare Pages 체크 결과와 운영 URL의 세 언어 페이지를 확인합니다.
+
+## 확인 범위
+
+2026-10-14: 정적 빌드 검사, 로컬 브라우저 데스크톱/360px 모바일 화면, KO → EN → JA → KO 링크 이동 확인. 360px와 768px 일본어 페이지의 문서 가로 넘침 없음. 실제 휴대폰과 공개 서버에서는 검수하지 않았습니다. 이 항목은 최초 로컬 검수 기록이며, 운영 배포 결과는 GitHub의 해당 커밋 Cloudflare Pages 체크에서 확인합니다.
