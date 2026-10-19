@@ -37,7 +37,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory dist
 - 일본어 `ゾンビバース` 표기는 Netflix 공식 페이지 참고: https://www.netflix.com/jp/title/81635888
 - 개미는 오늘도 뚠뚠: 영어 제목은 사용자 확정 March of the Ants (한국어 원제 병기 없음). 일본어 표기는 번역 초안 그대로입니다.
 - 보검 매직컬: 일본어판은 U-NEXT 일본 독점 배포 공식 제목 『ボゴムマジカル』(시즌 2는 ボゴムマジカル2로 맞춤)을 씁니다. 출처: https://www.unext.co.jp/ja/press-room/the-village-barber-2026-05-27 . 배우 표기는 パク・ボゴム. 작품 아래 줄은 원제 영문명 The Village Barber를 유지합니다.
-- 위 고 하이(We Go High): 제목은 세 언어 모두 느낌표를 붙입니다: 위 고 하이! / We Go High! / ウィー・ゴー・ハイ！(일본어는 전각 느낌표). 작품 아래 줄 원제도 We Go High!입니다.
+- 위 고 하이(We Go High): 제목은 느낌표 없이 위 고 하이 / We Go High / ウィー・ゴー・ハイ입니다. 작품 아래 줄 원제도 We Go High입니다.
 - 작품 아래 줄의 원제 영문명(`work-original`)은 영어판에서 제목과 같아 반복되므로 CSS로 숨기고 채널명만 보입니다. 한국어·일본어판에는 그대로 보입니다.
 - 시즌 2 일정과 작품 연도는 기존 한국어 원본을 그대로 옮겼으며 별도 사실 검증/변경하지 않았습니다.
 
