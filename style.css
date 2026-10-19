@@ -445,3 +445,9 @@ html:lang(en) .work-original{display:none}
  .work{scroll-snap-align:start}
 }
 @media(min-width:761px) and (max-width:1000px){.poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:640px}}
+
+/* Dark variant of the teaser card for the unannounced YouTube project; same layout as The Village Barber 2. */
+.season-two.teaser-dark{background:var(--green);color:var(--cream);border-color:transparent}
+.teaser-dark .season-number{color:var(--lime);transform:translateY(.22em)}
+/* Pin teaser titles to the top so cards with one or two bottom lines line up. */
+.season-two .season-center{margin:4% 0 auto}
