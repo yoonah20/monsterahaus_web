@@ -24,8 +24,8 @@
 </header>
 <main>
 <section class="works section" id="works" aria-labelledby="works-title">
-<div class="section-line"><h1 id="works-title">만드는 이야기<span class="period">.</span></h1></div>
-<div class="poster-grid">
+<div class="section-line"><h1 id="works-title">만드는 이야기<span class="period">.</span></h1><div class="works-nav"><button type="button" data-dir="-1" aria-label="이전 작품" aria-controls="works-list"><span aria-hidden="true">←</span></button><button type="button" data-dir="1" aria-label="다음 작품" aria-controls="works-list"><span aria-hidden="true">→</span></button></div></div>
+<div class="poster-grid" id="works-list">
 <article class="work">
 <a class="poster poster-image" href="https://www.youtube.com/playlist?list=PLgbB1gJhmG7DCP3flJX_7QLspehWe-e1h" target="_blank" rel="noopener noreferrer" aria-label="보검 매직컬 영상 보기 — YouTube, 새 창"><img src="assets/bogum-poster.webp" alt="보검 매직컬 공식 포스터. 눈 내린 시골 미용실의 박보검, 이상이, 곽동연." width="1000" height="1416" fetchpriority="high"><span class="watch">영상 보기 <span aria-hidden="true">↗</span></span></a>
 <div class="work-title"><h2>보검 매직컬</h2><span>2026</span></div><p class="work-meta"><span class="work-original">The Village Barber</span> <span>tvN</span></p>
@@ -39,8 +39,8 @@
 <div class="work-title"><h2>보검 매직컬 2</h2><span class="status">COMING SOON</span></div><p class="work-meta"><span class="work-original">The Village Barber 2</span> <span>tvN</span></p>
 </article>
 <article class="work">
-<div class="poster development" role="img" aria-label="제목 미정. 유튜브 새 프로젝트 기획 중."><div class="teaser-top"><span>YOUTUBE</span><span>NEW PROJECT</span></div><div class="dev-center"><span class="dev-asterisk" aria-hidden="true">＊</span><p>아직은,<br><em>비밀.</em></p></div><div class="teaser-bottom"><strong>UNTITLED</strong><span>IN DEVELOPMENT</span></div></div>
-<div class="work-title"><h2>유튜브 새 프로젝트</h2><span class="status">IN DEVELOPMENT</span></div><p class="work-meta"><span class="work-original">Untitled</span> <span>YouTube</span></p>
+<div class="poster development" role="img" aria-label="유튜브 새 프로젝트. 2027년 공개 예정."><div class="teaser-top"><span>YOUTUBE</span><span>2027</span></div><div class="dev-center"><span class="dev-asterisk" aria-hidden="true">＊</span><p>아직은,<br><em>비밀.</em></p></div><div class="teaser-bottom"><strong>NEW PROJECT</strong><span>IN DEVELOPMENT</span></div></div>
+<div class="work-title"><h2>유튜브 새 프로젝트</h2><span>2027</span></div><p class="work-meta"><span>YouTube</span></p>
 </div>
 <div class="section-end" aria-hidden="true"></div>
 </section>
@@ -59,5 +59,24 @@
 <footer><div class="footer-brand"><div class="footer-wordmark" aria-hidden="true">monsterahaus<span>＊</span></div><p class="footer-location">SEOUL, KOREA<br>EST. 2025</p></div><div class="legal"><p>주식회사 몬스테라하우스 <span>대표이사 박진경 · 이재석</span><span class="footer-address">서울시 마포구 월드컵로13길 19-25</span></p><a href="#works">BACK TO TOP ↑</a></div></footer>
 </section>
 </main>
+<script>
+(() => {
+  const list = document.getElementById('works-list');
+  const buttons = document.querySelectorAll('.works-nav button');
+  const update = () => {
+    const end = list.scrollWidth - list.clientWidth;
+    buttons[0].disabled = list.scrollLeft <= 1;
+    buttons[1].disabled = list.scrollLeft >= end - 1;
+  };
+  buttons.forEach(button => button.addEventListener('click', () => {
+    const card = list.querySelector('.work');
+    const step = card.offsetWidth + parseFloat(getComputedStyle(list).columnGap);
+    list.scrollBy({ left: step * Number(button.dataset.dir), behavior: 'smooth' });
+  }));
+  list.addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+})();
+</script>
 </body>
 </html>

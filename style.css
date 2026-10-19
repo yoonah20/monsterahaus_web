@@ -432,18 +432,16 @@ html:lang(ja) .studio-story h2,html:lang(ja) .connect-heading{font-size:clamp(28
 /* English titles already are the original titles, so the meta line shows only the channel. */
 html:lang(en) .work-original{display:none}
 
-/* Four works: four across on desktop, two across on tablets, so no card sits alone. */
+/* Works: at most three visible on desktop, the rest reached by sideways scroll or the arrow buttons. Two across on tablets. */
+.works-nav{display:none}
 @media(min-width:1001px){
- .poster-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
- .work{container-type:inline-size}
- .work-title{flex-wrap:wrap;gap:4px 10px}
- .work-title h2{font-size:19px}
- .poster-grid .work .season-two,.poster-grid .work .development{padding:8%}
- .poster-grid .work .season-center>p{font-size:clamp(28px,21cqw,64px)}
- html:lang(en) .poster-grid .work .season-center>p,html:lang(ja) .poster-grid .work .season-center>p{font-size:clamp(22px,14cqw,46px)}
- .poster-grid .work .season-number{font-size:clamp(70px,48cqw,150px)}
- .poster-grid .work .dev-asterisk{font-size:56px;margin-bottom:12px}
- .poster-grid .work .dev-center p{font-size:clamp(24px,16cqw,52px)}
- .poster-grid .work .teaser-bottom strong{font-size:15px}
+ .works>.section-line{justify-content:space-between}
+ .works-nav{display:flex;gap:8px}
+ .works-nav button{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--green);font:inherit;font-size:18px;cursor:pointer}
+ .works-nav button:hover:not(:disabled){background:var(--green);color:var(--cream)}
+ .works-nav button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+ .works-nav button:disabled{opacity:.3;cursor:default}
+ .poster-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 54px)/3);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding-bottom:16px;scrollbar-width:thin;scrollbar-color:var(--muted) transparent}
+ .work{scroll-snap-align:start}
 }
 @media(min-width:761px) and (max-width:1000px){.poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:640px}}
