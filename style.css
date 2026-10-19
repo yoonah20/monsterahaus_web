@@ -432,7 +432,7 @@ html:lang(ja) .studio-story h2,html:lang(ja) .connect-heading{font-size:clamp(28
 /* English titles already are the original titles, so the meta line shows only the channel. */
 html:lang(en) .work-original{display:none}
 
-/* Works: at most three visible on desktop, the rest reached by sideways scroll or the arrow buttons. Two across on tablets. */
+/* Works: three cards on desktop with the edge of the next one showing, reached by sideways scroll or the arrow buttons. Two across on tablets. */
 .works-nav{display:none}
 @media(min-width:1001px){
  .works>.section-line{justify-content:space-between}
@@ -441,7 +441,7 @@ html:lang(en) .work-original{display:none}
  .works-nav button:hover:not(:disabled){background:var(--green);color:var(--cream)}
  .works-nav button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
  .works-nav button:disabled{opacity:.3;cursor:default}
- .poster-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 54px)/3);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding-bottom:16px;scrollbar-width:thin;scrollbar-color:var(--muted) transparent}
+ .poster-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 81px)/3.2);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding-bottom:16px;scrollbar-width:thin;scrollbar-color:var(--muted) transparent}
  .work{scroll-snap-align:start}
 }
 @media(min-width:761px) and (max-width:1000px){.poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:640px}}
