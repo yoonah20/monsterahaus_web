@@ -41,7 +41,7 @@
 .studio .footer-wordmark{font-size:clamp(54px,10.8vw,155px);padding:10px 0 28px}
 @media(min-width:1500px){.studio-content,.studio>.section-line,.studio>footer{max-width:1260px}}
 
-/* Mobile: compact navigation and works stacked as full-width posters. */
+/* Mobile: compact navigation, a large lead poster with the other works two across. */
 @media(max-width:760px){
  html{scroll-padding-top:120px}
  .section{padding-inline:20px}
@@ -51,7 +51,18 @@
  .section-line{padding:24px 0 18px;flex-wrap:wrap}
  .section-line>.eyebrow:last-child{font-size:12px}
  .section-line h1{font-size:28px}
- .poster-grid{grid-template-columns:minmax(0,1fr);gap:40px;max-width:460px;margin-inline:auto}
+ .poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 14px;max-width:460px;margin-inline:auto}
+ .work:first-child{grid-column:1/-1}
+ .work:not(:first-child) .work-title{padding-top:10px}
+ .work:not(:first-child) .work-title h2{font-size:17px}
+ .work:not(:first-child) .work-meta{margin-top:4px}
+ .work:not(:first-child) .season-two{padding:9%}
+ .work:not(:first-child) .teaser-top{font-size:8px;letter-spacing:.02em}
+ .work:not(:first-child) .season-center>p{font-size:clamp(24px,17cqw,40px)}
+ .work:not(:first-child) .season-number{font-size:clamp(60px,40cqw,96px);margin:-4px 4px 0 0}
+ .work:not(:first-child) .teaser-bottom{gap:4px}
+ .work:not(:first-child) .teaser-bottom strong{font-size:12px}
+ .work:not(:first-child) .teaser-bottom>span{font-size:8px;letter-spacing:.06em}
  .work{min-width:0;container-type:inline-size}
  .poster{aspect-ratio:1000/1416}
  .teaser-top{font-size:12px;letter-spacing:0;gap:8px}
@@ -322,17 +333,18 @@
 @media(min-width:1500px){.works>.section-line,.people-heading{max-width:1260px}}
 @media(max-width:760px){.works>.section-line{max-width:none}.people-heading{max-width:460px}}
 
-/* Mobile producers: stacked rows, a small portrait beside the name and full credits. */
+/* Mobile producers: a small portrait beside the name, credits as one-line rows across the full width. */
 @media(max-width:760px){
  .people-grid{display:block;width:auto;max-width:460px;margin-inline:auto;padding:0}
- .people-grid .person{display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:18px;align-items:start;padding:24px 0;border-top:1px solid var(--line);--portrait-width:100%;--portrait-max:none}
+ .people-grid .person{display:grid;grid-template-columns:72px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:16px;align-items:start;padding:20px 0;border-top:1px solid var(--line);--portrait-width:100%;--portrait-max:none}
  .people-grid .person:last-child{border-bottom:1px solid var(--line)}
- .people-grid .person .portrait{grid-row:1/span 3;width:96px;max-width:none;margin:0;border-width:.25rem}
- .people-grid .person .person-name,.people-grid .person .role,.people-grid .person .credits{grid-column:2;width:auto;max-width:none;margin-inline:0}
- .people-grid .person .person-name{margin-top:0}
- .people-grid .person .role{min-height:0;margin-top:4px}
- .people-grid .person .credits{margin-top:14px;padding-top:14px}
- .people-grid .person .credits li{margin-bottom:10px}
+ .people-grid .person .portrait{grid-row:1/span 2;width:72px;max-width:none;margin:0;border-width:.2rem}
+ .people-grid .person .person-name,.people-grid .person .role{grid-column:2;width:auto;max-width:none;margin-inline:0}
+ .people-grid .person .person-name{margin-top:2px}
+ .people-grid .person .role{min-height:0;margin-top:2px;font-size:11px}
+ .people-grid .person .credits{grid-column:1/-1;width:auto;max-width:none;margin:14px 0 0;padding-top:12px}
+ .people-grid .person .credits li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:7px;font-size:13px}
+ .people-grid .person .credits small{flex:none;margin-top:0;font-size:11px}
  .people-grid .person .credits li:last-child{margin-bottom:0}
 }
 
