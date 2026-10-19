@@ -41,7 +41,7 @@
 .studio .footer-wordmark{font-size:clamp(54px,10.8vw,155px);padding:10px 0 28px}
 @media(min-width:1500px){.studio-content,.studio>.section-line,.studio>footer{max-width:1260px}}
 
-/* Mobile: compact navigation, a large lead poster with the other works two across. */
+/* Mobile: compact navigation and works two across. */
 @media(max-width:760px){
  html{scroll-padding-top:120px}
  .section{padding-inline:20px}
@@ -52,17 +52,22 @@
  .section-line>.eyebrow:last-child{font-size:12px}
  .section-line h1{font-size:28px}
  .poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 14px;max-width:460px;margin-inline:auto}
- .work:first-child{grid-column:1/-1}
- .work:not(:first-child) .work-title{padding-top:10px}
- .work:not(:first-child) .work-title h2{font-size:17px}
- .work:not(:first-child) .work-meta{margin-top:4px}
- .work:not(:first-child) .season-two{padding:9%}
- .work:not(:first-child) .teaser-top{font-size:8px;letter-spacing:.02em}
- .work:not(:first-child) .season-center>p{font-size:clamp(24px,17cqw,40px)}
- .work:not(:first-child) .season-number{font-size:clamp(60px,40cqw,96px);margin:-4px 4px 0 0}
- .work:not(:first-child) .teaser-bottom{gap:4px}
- .work:not(:first-child) .teaser-bottom strong{font-size:12px}
- .work:not(:first-child) .teaser-bottom>span{font-size:8px;letter-spacing:.06em}
+ .poster-grid .work .work-title{padding-top:10px}
+ .poster-grid .work .work-title h2{font-size:17px}
+ .poster-grid .work .work-meta{margin-top:4px}
+ .poster-grid .work .season-two{padding:9%}
+ .poster-grid .work .teaser-top{font-size:8px;letter-spacing:.02em}
+ .poster-grid .work .season-center>p{font-size:clamp(24px,17cqw,40px)}
+ .poster-grid .work .season-number{font-size:clamp(60px,40cqw,96px);margin:-4px 4px 0 0}
+ .poster-grid .work .teaser-bottom{gap:4px}
+ .poster-grid .work .teaser-bottom strong{font-size:12px}
+ .poster-grid .work .teaser-bottom>span{font-size:8px;letter-spacing:.06em}
+ .poster-grid .work .development{padding:9%}
+ .poster-grid .work .dev-asterisk{font-size:40px;margin-bottom:6px}
+ .poster-grid .work .dev-center p{font-size:clamp(22px,15cqw,40px)}
+ .poster-grid .work .development .teaser-bottom{padding-top:8px}
+ .poster-grid .work .watch{padding:6px 8px;font-size:11px;min-height:36px;bottom:8px;right:8px}
+ .poster-grid .work .watch span{margin-left:8px}
  .work{min-width:0;container-type:inline-size}
  .poster{aspect-ratio:1000/1416}
  .teaser-top{font-size:12px;letter-spacing:0;gap:8px}
@@ -426,3 +431,19 @@ html:lang(ja) .studio-story h2,html:lang(ja) .connect-heading{font-size:clamp(28
 
 /* English titles already are the original titles, so the meta line shows only the channel. */
 html:lang(en) .work-original{display:none}
+
+/* Four works: four across on desktop, two across on tablets, so no card sits alone. */
+@media(min-width:1001px){
+ .poster-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+ .work{container-type:inline-size}
+ .work-title{flex-wrap:wrap;gap:4px 10px}
+ .work-title h2{font-size:19px}
+ .poster-grid .work .season-two,.poster-grid .work .development{padding:8%}
+ .poster-grid .work .season-center>p{font-size:clamp(28px,21cqw,64px)}
+ html:lang(en) .poster-grid .work .season-center>p,html:lang(ja) .poster-grid .work .season-center>p{font-size:clamp(22px,14cqw,46px)}
+ .poster-grid .work .season-number{font-size:clamp(70px,48cqw,150px)}
+ .poster-grid .work .dev-asterisk{font-size:56px;margin-bottom:12px}
+ .poster-grid .work .dev-center p{font-size:clamp(24px,16cqw,52px)}
+ .poster-grid .work .teaser-bottom strong{font-size:15px}
+}
+@media(min-width:761px) and (max-width:1000px){.poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:640px}}
