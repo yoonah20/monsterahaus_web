@@ -411,3 +411,8 @@ html:lang(ja) .studio-story h2,html:lang(ja) .connect-heading{font-size:clamp(28
  html:lang(ja) .studio-story h2,html:lang(ja) .connect-heading{font-size:clamp(26px,7vw,34px)}
 }
 @media(max-width:380px){.masthead{gap:4px}.masthead .brand{gap:6px}.masthead .brand>span:not(.brand-symbol){font-size:18px}.masthead .brand-sub{font-size:10px}.masthead .brand .brand-symbol{width:34px;height:30px}.masthead .brand-symbol img{width:34px;height:34px}.language-switch a{min-width:30px}}
+
+/* Placeholder poster for an announced title whose artwork is not yet released. Same English text in every language. */
+.development.upcoming .dev-center p{font-size:clamp(34px,4.4vw,64px);letter-spacing:-.045em;line-height:1.05}
+@media(min-width:761px) and (max-width:1000px){.development.upcoming .dev-asterisk{font-size:60px;margin-bottom:10px}.development .teaser-bottom{gap:6px;padding-top:12px}.development .teaser-bottom strong{font-size:15px}}
+@media(max-width:760px){.development.upcoming .dev-center p{font-size:clamp(42px,18cqw,64px)}}
