@@ -455,7 +455,8 @@ html:lang(en) .work-original{display:none}
 .season-two .season-center{margin:4% 0 auto}
 
 /* Platform sits beside the title; year or COMING SOON sits on the line below. */
-.work-meta .status{letter-spacing:.03em}
+.work-meta .status{font-size:10px;letter-spacing:.08em;opacity:.75}
+html:lang(ko) .work-meta .status{font-size:12px;letter-spacing:0}
 
 /* Marks artwork that is not the official poster yet. */
 .poster-label{position:absolute;left:10px;bottom:10px;padding:4px 6px;background:var(--cream);color:var(--green);font-size:9px;font-weight:600;letter-spacing:.08em;line-height:1}
