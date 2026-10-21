@@ -43,7 +43,6 @@
 
 /* Mobile: compact navigation and works two across. */
 @media(max-width:760px){
- .work-meta{flex-direction:column;gap:2px}
  html{scroll-padding-top:120px}
  .section{padding-inline:20px}
  .masthead{padding:10px 20px 0;gap:6px;min-height:0}
@@ -455,6 +454,8 @@ html:lang(en) .work-original{display:none}
 .season-two .season-center{margin:4% 0 auto}
 
 /* Platform sits beside the title; year or COMING SOON sits on the line below. */
+.work-meta{flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:2px 10px}
+.work-title>span,.work-meta>span:last-child{margin-left:auto;text-align:right}
 .work-meta .status{font-size:10px;letter-spacing:.08em}
 html:lang(ko) .work-meta .status,html:lang(ja) .work-meta .status{font-size:12px;letter-spacing:0}
 
