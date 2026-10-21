@@ -480,14 +480,14 @@ html:lang(ko) .work-meta .status,html:lang(ja) .work-meta .status{font-size:12px
  .studio>.studio-content{margin-block:auto}
  html{scroll-padding-top:72px}
  .works>.section-end{margin-top:32px}
- /* Grow the posters with the screen height: about 410px of header, heading, titles and breathing room, 3.5 cards across at 1000:1416. Wider than the other sections so half of the next card shows. */
- .works>.poster-grid,.works>.section-line{width:94%;max-width:clamp(1135px,calc((100svh - 410px) * 2.47 + 81px),1800px)}
+ /* Grow the posters with the screen height: about 450px of header, heading, titles and breathing room, capped at 1440px, 3.5 cards across at 1000:1416. Wider than the other sections so half of the next card shows. */
+ .works>.poster-grid,.works>.section-line{width:94%;max-width:clamp(1135px,calc((100svh - 450px) * 2.47 + 81px),1440px)}
 }
 
 /* Desktop: every section shares the works row's width so their left edges line up.
    Portraits keep the size they had in the old 90%-wide grid; only the gaps between them grow. */
 @media(min-width:1001px){
- .people-heading,.people-grid,.studio-content,.studio>footer{width:94%;max-width:clamp(1135px,calc((100svh - 410px) * 2.47 + 81px),1800px);margin-inline:auto}
+ .people-heading,.people-grid,.studio-content,.studio>footer{width:94%;max-width:clamp(1135px,calc((100svh - 450px) * 2.47 + 81px),1440px);margin-inline:auto}
  .people-heading h2{margin-left:0}
  .people-grid{--portrait-size:min(190px,calc((min(83.52vw,1044px) - 64.8px) / 5 * .93333 - 5.23px));grid-template-columns:repeat(5,var(--portrait-size));justify-content:space-between;column-gap:16px}
  .people-grid .person{--portrait-width:100%;--portrait-max:none}
