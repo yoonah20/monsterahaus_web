@@ -471,10 +471,14 @@ html:lang(ko) .work-meta .status,html:lang(ja) .work-meta .status{font-size:12px
  .work:hover .season-two>*{transform:scale(1.03)}
 }
 
-/* Desktop: the works section fills the first screen below the header, heading at the top and the cards centred in the space below it, so the next section never peeks in cut off. */
+/* Desktop: works, people and about each fill a screen below the header, heading at the top and the cards centred in the space below it, so the next section never peeks in cut off. */
 @media(min-width:1001px){
  .works{display:flex;flex-direction:column;min-height:calc(100svh - 72px)}
  .works>.poster-grid{margin-block:auto}
+ .people,.studio{display:flex;flex-direction:column;min-height:calc(100svh - 72px)}
+ .people>.people-grid{margin-block:auto}
+ .studio>.studio-content{margin-block:auto}
+ html{scroll-padding-top:72px}
  .works>.section-end{margin-top:32px}
  /* Grow the posters with the screen height: about 410px of header, heading, titles and breathing room, 3.2 cards across at 1000:1416. */
  .works>.poster-grid,.works>.section-line{max-width:clamp(1044px,calc((100svh - 410px) * 2.26 + 81px),1600px)}
