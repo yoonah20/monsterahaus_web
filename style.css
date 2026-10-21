@@ -43,7 +43,7 @@
 
 /* Mobile: compact navigation and works two across. */
 @media(max-width:760px){
- .work-title .status{flex-basis:100%}
+ .work-meta{flex-direction:column;gap:2px}
  html{scroll-padding-top:120px}
  .section{padding-inline:20px}
  .masthead{padding:10px 20px 0;gap:6px;min-height:0}
@@ -453,3 +453,6 @@ html:lang(en) .work-original{display:none}
 .teaser-dark .season-number{color:var(--lime);transform:translateY(.22em)}
 /* Pin teaser titles to the top so cards with one or two bottom lines line up. */
 .season-two .season-center{margin:4% 0 auto}
+
+/* Platform sits beside the title; year or COMING SOON sits on the line below. */
+.work-meta .status{letter-spacing:.03em}
