@@ -470,3 +470,10 @@ html:lang(ko) .work-meta .status,html:lang(ja) .work-meta .status{font-size:12px
  .work:hover .poster img{transform:scale(1.05)}
  .work:hover .season-two>*{transform:scale(1.03)}
 }
+
+/* Desktop: the works section fills the first screen below the header, so the next section never peeks in cut off. */
+@media(min-width:1001px){
+ .works{display:flex;flex-direction:column;min-height:calc(100svh - 72px)}
+ .works>.section-end{margin-top:auto}
+ .works>.poster-grid{margin-bottom:32px}
+}
