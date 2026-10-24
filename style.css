@@ -459,9 +459,6 @@ html:lang(en) .work-original{display:none}
 .work-meta .status{font-size:10px;letter-spacing:.08em}
 html:lang(ko) .work-meta .status,html:lang(ja) .work-meta .status{font-size:12px;letter-spacing:0}
 
-/* Marks artwork that is not the official poster yet. */
-.poster-label{position:absolute;left:10px;bottom:10px;padding:4px 6px;background:var(--cream);color:var(--green);font-size:9px;font-weight:600;letter-spacing:.08em;line-height:1}
-@media(max-width:760px){.poster-label{left:6px;bottom:6px;padding:3px 5px;font-size:7.5px;letter-spacing:.06em}}
 
 /* Hover: the artwork zooms in slightly inside a fixed frame. Text cards zoom their contents. */
 .poster img{transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .35s}
