@@ -486,13 +486,16 @@ html:lang(ko) .work-meta .status,html:lang(ja) .work-meta .status{font-size:12px
 @media(min-width:1001px){
  .people-heading,.people-grid,.studio-content,.studio>footer{width:94%;max-width:clamp(1135px,calc((100svh - 450px) * 2.47 + 81px),1440px);margin-inline:auto}
  .people-heading h2{margin-left:0}
- .people-grid{--portrait-size:min(190px,calc((min(83.52vw,1044px) - 64.8px) / 5 * .93333 - 5.23px));grid-template-columns:repeat(5,var(--portrait-size));justify-content:space-between;column-gap:16px}
+ .people{--portrait-size:min(190px,calc((min(83.52vw,1044px) - 64.8px) / 5 * .93333 - 5.23px));--people-gap:clamp(16px,calc(9vw - 70px),72px)}
+ /* Keep the five producers together in the middle instead of spreading them across the full row; the heading lines up with the first portrait. */
+ .people-heading,.people-grid{width:calc(5 * var(--portrait-size) + 4 * var(--people-gap));max-width:94%}
+ .people-grid{grid-template-columns:repeat(5,var(--portrait-size));justify-content:center;column-gap:var(--people-gap)}
  .people-grid .person{--portrait-width:100%;--portrait-max:none}
  .people-grid .person .portrait{width:100%;max-width:none;margin-inline:0}
  .people-grid .person .person-name,.people-grid .person .role,.people-grid .person .credits{width:100%;margin-inline:0}
 }
-@media(min-width:1001px) and (max-width:1100px){.people-grid{--portrait-size:calc((83.52vw - 64.8px) / 5 * .93333)}}
-@media(min-width:1500px){.people-grid{--portrait-size:190px}}
+@media(min-width:1001px) and (max-width:1100px){.people{--portrait-size:calc((83.52vw - 64.8px) / 5 * .93333)}}
+@media(min-width:1500px){.people{--portrait-size:190px}}
 /* Narrow desktops: back to 3.2 cards across so posters stay a readable size. */
 @media(min-width:1001px) and (max-width:1199px){.poster-grid{grid-auto-columns:calc((100% - 81px)/3.2)}}
 
