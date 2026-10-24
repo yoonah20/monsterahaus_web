@@ -495,3 +495,6 @@ html:lang(ko) .work-meta .status,html:lang(ja) .work-meta .status{font-size:12px
 @media(min-width:1500px){.people-grid{--portrait-size:190px}}
 /* Narrow desktops: back to 3.2 cards across so posters stay a readable size. */
 @media(min-width:1001px) and (max-width:1199px){.poster-grid{grid-auto-columns:calc((100% - 81px)/3.2)}}
+
+/* A call-to-action button that stays visible instead of appearing on hover. */
+.watch.is-pinned{opacity:1;transform:none}
