@@ -14,16 +14,11 @@
 
 /* Face-focused square framing, preserving the supplied original. */
 .portrait{position:relative;width:100%;aspect-ratio:1;overflow:hidden;background:#e3dfbb;border:0.5rem solid #e3dfbb;outline:1px solid #203e301a;outline-offset:-1px}
-.portrait img{position:absolute;display:block;max-width:none;filter:none;}
-.portrait-jk img{width:150.0000%;height:225.0000%;left:-40.0000%;top:-15.0000%;}
+.portrait img{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;filter:none;}
 
 @media(prefers-reduced-motion:reduce){.portrait img{transition:none}}
 
 /* Individual face framing for supplied portraits. */
-.portrait-js img{width:122.0000%;height:183.0000%;left:-10.0000%;top:-10.0000%;}
-.portrait-sj img{width:352.9412%;height:235.2941%;left:-126.4706%;top:-26.1765%;}
-.portrait-sd img{width:160.0000%;height:241.4286%;left:-24.5714%;top:0.0000%;}
-.portrait-jy img{width:233.3333%;height:166%;left:-63.3333%;top:-8%;}
 
 /* Compact studio: the original two-column silhouette. */
 .studio-content,.studio>.section-line,.studio>footer{max-width:1160px;margin-inline:auto}
@@ -61,7 +56,7 @@
  .poster-grid .work .season-number{font-size:clamp(60px,40cqw,96px);margin:-4px 4px 0 0}
  .poster-grid .work .teaser-bottom{gap:4px}
  .poster-grid .work .teaser-bottom strong{font-size:12px}
- .poster-grid .work .teaser-bottom>span{font-size:8px;letter-spacing:.06em}
+ .poster-grid .work .teaser-bottom>span{font-size:11px;letter-spacing:.02em}
  .poster-grid .work .development{padding:9%}
  .poster-grid .work .dev-asterisk{font-size:40px;margin-bottom:6px}
  .poster-grid .work .dev-center p{font-size:clamp(22px,15cqw,40px)}
@@ -351,7 +346,7 @@
  .people-grid .person .credits{margin-top:10px;padding-top:10px}
  .people-grid .person .credits li{margin-bottom:5px;font-size:12.5px;line-height:1.4}
  .people-grid .person .credits li:last-child{margin-bottom:0}
- .people-grid .person .credits small{display:inline;margin:0 0 0 6px;font-size:10.5px;white-space:nowrap}
+ .people-grid .person .credits small{display:inline;margin:0 0 0 6px;font-size:12px;white-space:nowrap}
 }
 
 /* Match the people heading to the first centered portrait on desktop. */
@@ -418,7 +413,8 @@ html:lang(en) .work-title,html:lang(ja) .work-title{flex-wrap:wrap}
 html:lang(en) .person-name h3,html:lang(ja) .person-name h3{font-size:1.125rem;letter-spacing:-.02em}
 html:lang(en) .studio-copy{word-break:normal}
 html:lang(ja){--body:'Pretendard','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif}
-html:lang(ja) .studio-copy,html:lang(ja) .credits li{word-break:normal;overflow-wrap:anywhere}
+html:lang(ja){word-break:auto-phrase}
+html:lang(ja) .studio-copy,html:lang(ja) .credits li{word-break:auto-phrase;overflow-wrap:anywhere}
 html:lang(ja) .studio-story h2,html:lang(ja) .connect-heading{font-size:clamp(28px,2.7vw,38px);letter-spacing:-.035em}
 @media(min-width:761px) and (max-width:1000px){.language-switch{padding-left:8px}.masthead{gap:12px}.masthead nav{gap:14px}}
 @media(max-width:760px){
@@ -428,7 +424,7 @@ html:lang(ja) .studio-story h2,html:lang(ja) .connect-heading{font-size:clamp(28
  html:lang(en) .dev-center p{font-size:clamp(32px,13cqw,48px)}
  html:lang(ja) .studio-story h2,html:lang(ja) .connect-heading{font-size:clamp(26px,7vw,34px)}
 }
-@media(max-width:380px){.masthead{gap:4px}.masthead .brand{gap:6px}.masthead .brand>span:not(.brand-symbol){font-size:18px}.masthead .brand-sub{font-size:10px}.masthead .brand .brand-symbol{width:34px;height:30px}.masthead .brand-symbol img{width:34px;height:34px}.language-switch a{min-width:30px}}
+@media(max-width:380px){.masthead{gap:4px}.masthead .brand{gap:6px}.masthead .brand>span:not(.brand-symbol){font-size:18px}.masthead .brand-sub{font-size:11px}.masthead .brand .brand-symbol{width:34px;height:30px}.masthead .brand-symbol img{width:34px;height:34px}.language-switch a{min-width:30px}}
 
 /* English titles already are the original titles, so the meta line shows only the channel. */
 html:lang(en) .work-original{display:none}
@@ -456,7 +452,7 @@ html:lang(en) .work-original{display:none}
 /* Platform sits beside the title; year or COMING SOON sits on the line below. */
 .work-meta{flex-direction:row;flex-wrap:wrap;justify-content:space-between;gap:2px 10px}
 .work-title>span,.work-meta>span:last-child{margin-left:auto;text-align:right}
-.work-meta .status{font-size:10px;letter-spacing:.08em}
+.work-meta .status{font-size:11px;letter-spacing:.06em}
 html:lang(ko) .work-meta .status,html:lang(ja) .work-meta .status{font-size:12px;letter-spacing:0}
 
 
@@ -501,3 +497,7 @@ html:lang(ko) .work-meta .status,html:lang(ja) .work-meta .status{font-size:12px
 
 /* A call-to-action button that stays visible instead of appearing on hover. */
 .watch.is-pinned{opacity:1;transform:none}
+@media(max-width:760px){html:lang(ja) .poster-grid .work .season-center>p{font-size:clamp(20px,14cqw,34px)}
+}
+@media(min-width:1001px){.poster-grid .poster:focus-visible{outline:3px solid var(--green);outline-offset:-3px}
+}
