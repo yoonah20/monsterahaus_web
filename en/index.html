@@ -67,6 +67,10 @@
 </section>
 </main>
 <script>
+// Drop "upcoming" labels once their date arrives in Korea time.
+document.querySelectorAll('[data-until]').forEach(el => {
+  if (Date.now() >= Date.parse(el.dataset.until + 'T00:00:00+09:00')) el.remove();
+});
 (() => {
   const list = document.getElementById('works-list');
   const buttons = document.querySelectorAll('.works-nav button');
